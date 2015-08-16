@@ -20,7 +20,7 @@ Install
 	\# Add your templates here
 	)
 	
-Requirement: a block {% block extra_header %} in your <head> of base template to load the javascript
+Requirement: a block {% block extra_header %} in the \<head\> tag of the base template to load the javascript
 
 Note: this application is compatible with [django-xadmin](https://github.com/sshwsfc/django-xadmin)
 
