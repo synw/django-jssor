@@ -11,7 +11,7 @@ setup(
   keywords = ['django', 'slideshow', 'jssor'], # arbitrary keywords
   classifiers = [
         'Development Status :: 3 - Alpha',
-        'Framework :: Django :: 1.8'
+        'Framework :: Django :: 1.8',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
