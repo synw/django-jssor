@@ -14,13 +14,13 @@ Install
 - Run migrations
 - If you plan to use your own templates you will need this in settings:
 
-	SLIDESHOW_TYPES = (
-                   ('jssor/full_width_slider.html',_(u'Full width slider')),
-                   ('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
-                   ('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
-                   # Add your templates here
-                    
-                   )
+	SLIDESHOW_TYPES = (('jssor/full_width_slider.html',_(u'Full width slider')),
+	('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
+	('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
+	# Add your templates here
+	
+	)
+	
 Example usage
 --------------
 
