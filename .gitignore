@@ -3,7 +3,6 @@ settings.py
 .project
 .pydevproject
 .settings
-migrations/**
 
 __pycache__/
 *.py[cod]
