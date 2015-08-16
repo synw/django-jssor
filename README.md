@@ -18,7 +18,6 @@ Install
 	('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
 	('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
 	# Add your templates here
-	
 	)
 	
 Example usage
