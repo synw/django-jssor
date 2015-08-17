@@ -1,4 +1,5 @@
-recursive-include static *
-recursive-include templates *
-recursive-include migrations *
-recursive-include locale *
+recursive-include jssor/static *
+recursive-include jssor/templates *
+recursive-include jssor/migrations *
+recursive-include jssor/locale *
+recursive-include example
