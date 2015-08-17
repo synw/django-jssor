@@ -1,5 +1,7 @@
 python:
   - 2.7
   - pypy
+before_install:
+  - sudo apt-get install python-tk
 install:
   - pip install -r requirements.txt
