@@ -1,9 +1,10 @@
 Jssor slideshows for Django
 ==============
 
-.. image:: https://secure.travis-ci.org/sebdah/git-pylint-commit-hook.png?branch=master
-    :target: https://travis-ci.org/synw/django-jssor/
-    :alt: Build status
+[![Build status][2]][1]
+
+  [1]: https://travis-ci.org/synw/django-jssor/
+  [2]: https://secure.travis-ci.org/sebdah/git-pylint-commit-hook.png?branch=master
 
 This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 
