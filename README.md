@@ -27,7 +27,7 @@ Note: this application is compatible with [django-xadmin](https://github.com/ssh
 Example usage
 --------------
 
-Your app's models.py
+The app's models.py
 
 	from django.db import models
 	from django.contrib.flatpages.models import FlatPage
@@ -37,39 +37,30 @@ Your app's models.py
 	    slideshow = models.ForeignKey(Slideshow, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Slideshow')
 	    slideshow_bottom = models.ForeignKey(Slideshow, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Slideshow bottom')
 	    
-Your template:	    
+The view:
+
+	from django.views.generic.detail import DetailView
+	from pages.models import Page
+
+	class PageView(DetailView):
+	    template_name = 'pages/default.html'
+	    model = Page
 	    
-	{% extends "base.html" %}
-	
-	{% block title %}{{ flatpage.title }}{% endblock %}
-	
-	{% block content %}
-		{% if flatpage.slideshow %}
-		{% with flatpage.slideshow.slides.all as slides %}
-			{# I already have jquery loaded somewhere else so I don't want it to be loaded here #}
-			{% with load_jquery=0 %}
-				{% include flatpage.slideshow.template_name %}
-			{% endwith %}
-		{% endwith %}
-		{% endif %}
-		{% if flatpage.content %}{{ flatpage.content|safe }}{% endif %}
-		{% if flatpage.slideshow_bottom %}
-			<div>
-				{% with flatpage.slideshow_bottom.slides.all as slides %}
-					{# Prevent jssor and jquery from being loaded twice #}
-					{% if flatpage.slideshow %}
-						{% with load_jssor=0 load_jquery=0 %}
-							{% include flatpage.slideshow_bottom.template_name %}
-						{% endwith %}
-					{% else %}
-						{% with load_jquery=0 %}
-							{% include flatpage.slideshow_bottom.template_name %}
-						{% endwith %}
-					{% endif %}
-				{% endwith %}
-			</div>
-		{% endif %}
-	{% endblock %}
+The template:	    
+	    
+<html>
+<head><title>Slideshow example</title></head>
+
+<body>
+{% block extra_header %}{% endblock %}
+{% if page.slideshow %}
+	{% with page.slideshow.slides.all as slides %}
+		{% include page.slideshow.template_name %}
+	{% endwith %}
+{% if page.content %}{{ page.content|safe }}{% endif %}
+{% endif %}
+</body>
+</html>
 	    
 Contribute
 --------------
