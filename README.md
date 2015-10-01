@@ -48,19 +48,19 @@ The view:
 	    
 The template:	    
 	    
-<html>
-<head><title>Slideshow example</title></head>
-
-<body>
-{% block extra_header %}{% endblock %}
-{% if page.slideshow %}
-	{% with page.slideshow.slides.all as slides %}
-		{% include page.slideshow.template_name %}
-	{% endwith %}
-{% if page.content %}{{ page.content|safe }}{% endif %}
-{% endif %}
-</body>
-</html>
+	<html>
+	<head><title>Slideshow example</title></head>
+	
+	<body>
+	{% block extra_header %}{% endblock %}
+	{% if page.slideshow %}
+		{% with page.slideshow.slides.all as slides %}
+			{% include page.slideshow.template_name %}
+		{% endwith %}
+	{% if page.content %}{{ page.content|safe }}{% endif %}
+	{% endif %}
+	</body>
+	</html>
 	    
 Contribute
 --------------
