@@ -15,10 +15,10 @@ Install
 - If you plan to use your own templates you will need this in settings:
 
 	SLIDESHOW_TYPES = (('jssor/full_width_slider.html',_(u'Full width slider')),
-	('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
-	('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
-	\# Add your templates here
-	)
+		('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
+		('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
+		\# Add your templates here
+		)
 	
 Requirement: a block {% block extra_header %} in the \<head\> tag of the base template to load the javascript
 
@@ -54,7 +54,7 @@ Your template:
 		{% endif %}
 		{% if flatpage.content %}{{ flatpage.content|safe }}{% endif %}
 		{% if flatpage.slideshow_bottom %}
-			<div class="gf gc gus-xl">
+			<div>
 				{% with flatpage.slideshow_bottom.slides.all as slides %}
 					{# Prevent jssor and jquery from being loaded twice #}
 					{% if flatpage.slideshow %}

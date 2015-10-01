@@ -1,4 +1,8 @@
-{% load staticfiles %}
+{% if enable_hitcount %}
+	{% load staticfiles hitcount_tags %}
+{% else %}
+	{% load staticfiles %}
+{% endif %}
 {% block extra_header %}
 {% if load_jquery != 0 %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
@@ -7,6 +11,7 @@
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.js' %}"></script>
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}
+<script src="{% static 'hitcount/hitcount-jquery.js' %}"></script>
 {% endblock %}
     <script>
         jQuery(document).ready(function ($) {
@@ -26,7 +31,7 @@
 
             var options = {
                 $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
-                $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlay: {% if flatpage.slideshow.autoplay %}true{% else %}false{% endif %},                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
                 $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
@@ -106,7 +111,14 @@
             height: 400px; overflow: hidden;">
             {% for slide in slides %}
             <div>
-                <img u="image" src="{{ slide.image.url }}" />
+                {% if slide.link %}
+                	{% if enable_hitcount %}
+                		{% insert_hit_count_js_variables for slide %}
+                	{% endif %}
+                	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
+                {% else %}
+                	<img u="image" src="{{ slide.image.url }}" />
+                {% endif %}
             </div>
             {% endfor %}
         </div>
