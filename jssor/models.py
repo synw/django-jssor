@@ -12,6 +12,7 @@ else:
                    ('jssor/full_width_slider.html',_(u'Full width slider')),
                    ('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
                    ('jssor/banner_slider.html',_(u'Banner slider')),
+                   ('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
                    )
     
 
