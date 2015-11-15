@@ -1,6 +1,8 @@
 Jssor slideshows for Django
 ==============
 
+[![Build Status](https://travis-ci.org/synw/django-jssor.svg?branch=master)](https://travis-ci.org/synw/django-jssor)
+
 This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 
 Install
