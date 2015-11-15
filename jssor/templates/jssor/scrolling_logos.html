@@ -1,9 +1,13 @@
-{% load staticfiles %}
+{% if enable_hitcount %}
+	{% load staticfiles hitcount_tags %}
+{% else %}
+	{% load staticfiles %}
+{% endif %}
 {% block extra_header %}
-{% if load_jquery != 0 %}
+{% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 {% endif %}
-{% if load_jssor != 0 %}
+{% if not do_not_load_jssor %}
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.js' %}"></script>
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}
@@ -67,6 +71,9 @@
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: {{ slideshow.width }}px; height: {{ slideshow.height }}px; overflow: hidden;"></div>
         {% for slide in slides %}
             {% if slide.link %}
+            	{% if enable_hitcount %}
+            		{% insert_hit_count_js_variables for slide %}
+            	{% endif %}
                	<div><a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a></div>
             {% else %}
                	<div><img u="image" src="{{ slide.image.url }}" /></div>

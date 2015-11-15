@@ -4,10 +4,10 @@
 	{% load staticfiles %}
 {% endif %}
 {% block extra_header %}
-{% if load_jquery != 0 %}
+{% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 {% endif %}
-{% if load_jssor != 0 %}
+{% if not do_not_load_jssor %}
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.js' %}"></script>
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}

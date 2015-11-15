@@ -14,9 +14,11 @@ Install
 - Run migrations
 - If you plan to use your own templates you will need this in settings:
 
-		SLIDESHOW_TYPES = (('jssor/full_width_slider.html',_(u'Full width slider')),
+		SLIDESHOW_TYPES = (
+			('jssor/full_width_slider.html',_(u'Full width slider')),
 			('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
 			('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
+			('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
 			\# Add your templates here
 			)
 	
@@ -45,6 +47,7 @@ The view:
 	    template_name = 'pages/default.html'
 	    model = Page
 	    
+
 The template:	    
 	    
 	<html>
@@ -61,7 +64,28 @@ The template:
 	</body>
 	</html>
 	    
+
+Options
+--------------
+
+By default the template will not load jquery, asuming that you already did elsewhere. You can change this behavior in the view
+
+	context['load_jquery'] = True
+
+Or directly in the template:
+
+	{% with load_jquery=True %}
+		{% include page.slideshow.template_name %}
+	{% endwith %}
+
+By default it loads the necessary jssor js and css files in the {% block extra_header %} of your main template: if you don't want these to be loaded set the variable do_not_load_jssor=True the same way
+
 Contribute
 --------------
 
 Fork and add more templates from the [jssor catalog](http://jssor.com/demos/) 
+
+Todo
+--------------
+
+- [ ] Use easy_thumbnails for automatic thumbnails generation
