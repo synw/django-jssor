@@ -86,7 +86,7 @@ By default the template will not load jquery, asuming that you already did elsew
 Or directly in the template:
 
 	{% with load_jquery=True %}
-		{% include page.slideshow.template_name %}
+		{% include slideshow.template_name %}
 	{% endwith %}
 
 By default it loads the necessary jssor js and css files in the {% block extra_header %} of your main template: if you don't want these to be loaded set the variable do_not_load_jssor=True the same way
