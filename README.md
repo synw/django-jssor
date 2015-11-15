@@ -127,3 +127,5 @@ Todo
 --------------
 
 - [ ] Use easy_thumbnails for automatic thumbnails generation
+- [ ] Add more jssor templates
+- [ ] Finish the tests
