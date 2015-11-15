@@ -1,16 +1,16 @@
 <html>
 <head>
-	<title>{% block title %}{% endblock %}</title>
+	<title>{% block title %}{{ page.title }}{% endblock %}</title>
 	{% block extra_header %}{% endblock %}
 </head>
 
-<body>
-{% if page.slideshow %}
-	{% with page.slideshow.slides.all as slides %}
-		{% with load_jquery=True %}
-			{% include page.slideshow.template_name %}
-	{% endwith %}
+<body style="margin:0;padding:0">
+<div class="container">
+{% if slideshow %}
+	{% include slideshow.template_name %}
 {% endif %}
+</div>
+<h1>{{ page.title }}</h1>
 {% if page.content %}{{ page.content|safe }}{% endif %}
 </body>
 </html>

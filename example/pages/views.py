@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.views.generic import TemplateView
-from django.shortcuts import get_object_or_404
 from pages.models import Page
+from jssor.models import Slide
 
 
 class PageView(TemplateView):
@@ -10,6 +11,19 @@ class PageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PageView, self).get_context_data(**kwargs)
-        page=get_object_or_404(Page, slug=self.kwargs['slug']).select_related('slideshow')
+        try:
+            url = kwargs['url']
+        except:
+            url = '/'
+        if not url.startswith('/'):
+            url = '/' + url
+        if not url.endswith('/') and settings.APPEND_SLASH:
+            url += '/'
+        page=Page.objects.filter(url=url).select_related('slideshow')[0]
+        if page.slideshow:
+            context['slideshow'] = page.slideshow
+            slides = Slide.objects.filter(slideshow=page.slideshow)
+            context['slides'] = slides
         context['page'] = page
+        context['load_jquery'] = True
         return context

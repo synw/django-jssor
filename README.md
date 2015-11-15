@@ -12,15 +12,6 @@ Install
 - Create the following directories in you media folder: jssor, jssor/thumbnails
 - Collect static files
 - Run migrations
-- If you plan to use your own templates you will need this in settings:
-
-		SLIDESHOW_TYPES = (
-			('jssor/full_width_slider.html',_(u'Full width slider')),
-			('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
-			('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
-			('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
-			\# Add your templates here
-			)
 	
 Requirement: a block {% block extra_header %} in the \<head\> tag of the base template to load the javascript
 
@@ -40,32 +31,50 @@ The app's models.py
 	    
 The view:
 
-	from django.views.generic.detail import DetailView
+	from django.conf import settings
+	from django.views.generic import TemplateView
 	from pages.models import Page
-
-	class PageView(DetailView):
+	from jssor.models import Slide
+	
+	
+	class PageView(TemplateView):
 	    template_name = 'pages/default.html'
-	    model = Page
-	    
+	
+	    def get_context_data(self, **kwargs):
+	        context = super(PageView, self).get_context_data(**kwargs)
+	        try:
+	            url = kwargs['url']
+	        except:
+	            url = '/'
+	        if not url.startswith('/'):
+	            url = '/' + url
+	        if not url.endswith('/') and settings.APPEND_SLASH:
+	            url += '/'
+	        page=Page.objects.filter(url=url).select_related('slideshow')[0]
+	        if page.slideshow:
+	            context['slideshow'] = page.slideshow
+	            slides = Slide.objects.filter(slideshow=page.slideshow)
+	            context['slides'] = slides
+	        context['page'] = page
+	        context['load_jquery'] = True
+	        return context
 
-The template:	    
-	    
+A basic template:	    
+
 	<html>
 	<head>
-		<title>{% block title %}{% endblock %}</title>
+		<title>{% block title %}{{ page.title }}{% endblock %}</title>
 		{% block extra_header %}{% endblock %}
 	</head>
 	
 	<body>
-	{% if page.slideshow %}
-		{% with page.slideshow.slides.all as slides %}
-			{% include page.slideshow.template_name %}
-		{% endwith %}
-	{% if page.content %}{{ page.content|safe }}{% endif %}
+	{% if slideshow %}
+		{% include slideshow.template_name %}
 	{% endif %}
+	<h1>{{ page.title }}</h1>
+	{% if page.content %}{{ page.content|safe }}{% endif %}
 	</body>
 	</html>
-	    
 
 Options
 --------------
@@ -81,6 +90,29 @@ Or directly in the template:
 	{% endwith %}
 
 By default it loads the necessary jssor js and css files in the {% block extra_header %} of your main template: if you don't want these to be loaded set the variable do_not_load_jssor=True the same way
+
+If you plan to use your own templates you will need this in settings:
+
+	SLIDESHOW_TYPES = (
+		('jssor/full_width_slider.html',_(u'Full width slider')),
+		('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
+		('jssor/thumbnails_navigator_with_arrows.html',_(u'Banner slider')),
+		('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
+		\# Add your templates here
+		)
+
+Settings required to run the example
+--------------
+
+Add these to INSTALLED_APPS:
+
+	'django.contrib.sites',
+	'django.contrib.flatpages'
+	'pages',
+
+In the url patterns add: 
+
+	url(r'^(?P<url>.*/)$', PageView.as_view()), 
 
 Contribute
 --------------

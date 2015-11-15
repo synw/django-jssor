@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 setup(
   name = 'django-jssor',
   packages=find_packages(),
-  version = '0.1.3',
+  version = '0.2',
   description = 'Jssor slideshow for Django',
   author = 'synw',
   author_email = 'synwe@yahoo.com',
   url = 'https://github.com/synw/django-jssor', 
-  download_url = 'https://github.com/synw/django-jssor/releases/tag/0.1.2', 
+  download_url = 'https://github.com/synw/django-jssor/releases/tag/0.2', 
   keywords = ['django', 'slideshow', 'jssor'], 
   classifiers = [
         'Development Status :: 3 - Alpha',

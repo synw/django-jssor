@@ -1,8 +1,4 @@
-{% if enable_hitcount %}
-	{% load staticfiles hitcount_tags %}
-{% else %}
-	{% load staticfiles %}
-{% endif %}
+{% load staticfiles %}
 {% block extra_header %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
@@ -80,10 +76,7 @@
             {% for slide in slides %}
             <div>
 	            {% if slide.link %}
-	                {% if enable_hitcount %}
-	                	{% insert_hit_count_js_variables for slide %}
-	                {% endif %}
-	                	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
+	                <a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
 	            {% else %}
 	                <img u="image" src="{{ slide.image.url }}" />
 	            {% endif %}
