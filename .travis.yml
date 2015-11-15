@@ -1,3 +1,4 @@
+sudo apt-get install python-tk
 python:
   - 2.7
   - pypy
