@@ -51,10 +51,12 @@ The view:
 The template:	    
 	    
 	<html>
-	<head><title>Slideshow example</title></head>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		{% block extra_header %}{% endblock %}
+	</head>
 	
 	<body>
-	{% block extra_header %}{% endblock %}
 	{% if page.slideshow %}
 		{% with page.slideshow.slides.all as slides %}
 			{% include page.slideshow.template_name %}
