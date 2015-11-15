@@ -31,7 +31,7 @@ The app's models.py
 	class Page(FlatPage):
 	    slideshow = models.ForeignKey(Slideshow, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Slideshow')
 	    
-The view:
+The view.py:
 
 	from django.conf import settings
 	from django.views.generic import TemplateView
