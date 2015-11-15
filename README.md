@@ -112,7 +112,11 @@ Add these to INSTALLED_APPS:
 
 In the url patterns add: 
 
+	from pages.views import PageView
+	
+	#...
 	url(r'^(?P<url>.*/)$', PageView.as_view()), 
+	#...
 
 Contribute
 --------------
