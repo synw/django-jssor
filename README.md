@@ -93,16 +93,6 @@ Or directly in the template:
 
 By default it loads the necessary jssor js and css files in the {% block extra_header %} of your main template: if you don't want these to be loaded set the variable do_not_load_jssor=True the same way
 
-If you plan to use your own templates you will need this in settings:
-
-	SLIDESHOW_TYPES = (
-		('jssor/full_width_slider.html',_(u'Full width slider')),
-		('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
-		('jssor/banner_slider.html',_(u'Banner slider')),
-		('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
-		\# Add your templates here
-		)
-
 Settings required to run the example
 --------------
 
@@ -112,18 +102,26 @@ Add these to INSTALLED_APPS:
 	'django.contrib.flatpages'
 	'pages',
 
-In the url patterns add: 
+And in settings.py:
 
-	from pages.views import PageView
-	
-	#...
-	url(r'^(?P<url>.*/)$', PageView.as_view()), 
-	#...
+	SITE_ID = 1
 
-Contribute
+For the urls check urls.py in the example
+
+Developement
 --------------
 
 Fork and add more templates from the [jssor catalog](http://jssor.com/demos/) 
+
+You will need this in settings:
+
+	SLIDESHOW_TYPES = (
+		('jssor/full_width_slider.html',_(u'Full width slider')),
+		('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
+		('jssor/banner_slider.html',_(u'Banner slider')),
+		('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
+		# Add your templates here
+		)
 
 Todo
 --------------
