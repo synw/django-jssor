@@ -127,5 +127,6 @@ Todo
 --------------
 
 - [ ] Use easy_thumbnails for automatic thumbnails generation
+- [ ] Add more options to control the slideshow behavior like AutoPlayInterval, ArrowKeyNavigation, JssorBulletNavigator stuff
 - [ ] Add more jssor templates and slideshow types
 - [ ] Finish the tests
