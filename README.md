@@ -17,8 +17,6 @@ Install
 	
 Requirement: a block {% block extra_header %} in the \<head\> tag of the base template to load the javascript
 
-Note: this application is compatible with [django-xadmin](https://github.com/sshwsfc/django-xadmin)
-
 Example usage
 --------------
 
@@ -77,6 +75,8 @@ A basic template:
 	{% if page.content %}{{ page.content|safe }}{% endif %}
 	</body>
 	</html>
+
+For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)
 
 Options
 --------------
