@@ -4,14 +4,15 @@ python:
   - 2.7
   - pypy
 
-#before_install:
-#  - sudo apt-get install python-tk
-
 env:
   - DJANGO=1.8.6
 
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 
-script: 
-  - python setup.py test
+script:
+  coverage run --source=jssor setup.py test
+
+after_success:
+  coveralls
