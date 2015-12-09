@@ -12,7 +12,7 @@ install:
   - pip install coveralls
 
 script:
-  coverage run --source=jssor setup.py test
+  coverage run --source=jssor setup.py test jssor
 
 after_success:
   coveralls
