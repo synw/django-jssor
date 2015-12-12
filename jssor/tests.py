@@ -25,16 +25,15 @@ class SlideTest(TestCase):
     def create_slideshow(self, slug="slideshow", template_name="full_width_slider.html", title="Slideshow", width=780, height=300):
         return Slideshow.objects.create(slug=slug, template_name=template_name, title=title, width=width, height=height)
 
-    def create_slide(self, title='Test slide', order=10, link='/'):
-        self.slideshow = self.create_slideshow()
+    def create_slide(self, title='Test slide', slideshow=None, order=10, link='/'):
         self.image = tempfile.NamedTemporaryFile(suffix=".jpg").name
         self.thumbnail = tempfile.NamedTemporaryFile(suffix=".jpg").name
-        slide = Slide.objects.create(title=title, slideshow=self.slideshow, order=order, link=link, image=self.image, thumbnail=self.thumbnail)
-        
+        slide = Slide.objects.create(title=title, slideshow=slideshow, order=order, link=link, image=self.image, thumbnail=self.thumbnail)
         return slide
     
     def test_slide_creation(self):
-        slide=self.create_slide()
+        slideshow=self.create_slideshow()
+        slide=self.create_slide(slideshow=slideshow)
         self.assertTrue(isinstance(slide, Slide))
         self.assertEqual(slide.title, "Test slide")
         self.assertEqual(slide.__unicode__(), "Test slide ( Slideshow )")
@@ -43,6 +42,13 @@ class SlideTest(TestCase):
         self.assertEqual(slide.slideshow, self.slideshow)
         self.assertEqual(slide.order, 10)
         self.assertEqual(slide.link, '/')
+        self.assertEqual(str(slide),unicode(slide.title)+' ( '+slideshow.title+' )')
         self.assertFalse(slide.link_is_blank)
+        
+    def test_slide_with_no_slideshow(self):
+        slide=self.create_slide(slideshow=None)
+        self.assertEqual(str(slide),unicode(slide.title))
+        
+        
     
     
