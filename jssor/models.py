@@ -50,7 +50,7 @@ class Slide(models.Model):
         if self.slideshow:
             return unicode(self.title)+' ( '+self.slideshow.title+' )'
         else:
-            return unicode(self.title)+_(u' ( No slideshow )')
+            return unicode(self.title)
     
     
     
