@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles thumbnail %}
 {% block extra_header %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
@@ -97,11 +97,11 @@
             overflow: hidden;">
                 {% for slide in slides %}
 	            <div>
-	                {% if slide.link %}
-	                	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
-	                {% else %}
-	                	<img u="image" src="{{ slide.image.url }}" />
-	                {% endif %}
+	                {% if slide.link %}<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>{% endif %}
+						{% thumbnail slide.image "1000x600" as img %}
+							<img src="{{ img.url }}"  alt="" style="margin:{{ img|margin:"1000x600" }}" />
+						{% endthumbnail %}	
+					{% if slide.link %}</a>{% endif %}
 	            </div>
 	            {% endfor %}
             </div>

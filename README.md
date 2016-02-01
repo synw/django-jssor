@@ -8,12 +8,33 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 Install
 --------------
 
-- Clone the repository
-- Get Pillow
-- Add 'jssor' to INSTALLED_APPS
-- Create the following directories in you media folder: jssor, jssor/thumbnails
-- Collect static files
-- Run migrations
+1. Clone:
+
+	cd to_your_project_main_dir
+	git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
+
+2. Install dependencies:
+
+	pip install django-autoslug sorl-thumbnails
+	
+3. Migrate
+
+	python manage.py check
+	python manage.py makemigrations
+	python manager.py migrate
+
+Configuration
+--------------
+
+- Make sure your INSTALLED_APPS contains the following:
+
+	'django.contrib.sites',
+	'django.contrib.flatpages'
+	'django-autoslug',
+	'sorl-thumbnails',
+	'jssor',
+	
+- Create the following directories in you media folder: `jssor, jssor/thumbnails`
 	
 Requirement: a block {% block extra_header %} in the \<head\> tag of the base template to load the javascript
 
@@ -41,6 +62,9 @@ The view.py:
 	    template_name = 'pages/default.html'
 	
 	    def get_context_data(self, **kwargs):
+	    	"""
+	    	Function taken from the original flatpages application
+	    	"""
 	        context = super(PageView, self).get_context_data(**kwargs)
 	        try:
 	            url = kwargs['url']
@@ -126,7 +150,7 @@ You will need this in settings:
 Todo
 --------------
 
-- [ ] Use easy_thumbnails for automatic thumbnails generation
 - [ ] Add more options to control the slideshow behavior like AutoPlayInterval, ArrowKeyNavigation, JssorBulletNavigator stuff
 - [ ] Add more jssor templates and slideshow types
-- [x] Finish the tests
+- [x] More tests
+- [ ] Editor management
