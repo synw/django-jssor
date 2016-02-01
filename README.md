@@ -10,18 +10,24 @@ Install
 
 1. Clone:
 
-	cd to_your_project_main_dir
-	git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
+		```bash
+		cd to_your_project_main_dir
+		git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
+		```
 
 2. Install dependencies:
 
-	pip install django-autoslug sorl-thumbnails
-	
-3. Migrate
+		```bash
+		pip install django-autoslug sorl-thumbnails
+		```
 
-	python manage.py check
-	python manage.py makemigrations
-	python manager.py migrate
+3. Migrate
+		
+		```bash
+		python manage.py check
+		python manage.py makemigrations
+		python manager.py migrate
+		```
 
 Configuration
 --------------
@@ -43,15 +49,18 @@ Example usage
 
 The app's models.py
 
+	```python
 	from django.db import models
 	from django.contrib.flatpages.models import FlatPage
 	from jssor.models import Slideshow
 	
 	class Page(FlatPage):
 	    slideshow = models.ForeignKey(Slideshow, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Slideshow')
-	    
+	```
+
 The view.py:
 
+	```python
 	from django.conf import settings
 	from django.views.generic import TemplateView
 	from pages.models import Page
@@ -82,9 +91,11 @@ The view.py:
 	        context['page'] = page
 	        context['load_jquery'] = True
 	        return context
+	```
 
-A basic template:	    
-
+A basic template:	 
+   
+	```html
 	<html>
 	<head>
 		<title>{% block title %}{{ page.title }}{% endblock %}</title>
@@ -99,6 +110,7 @@ A basic template:
 	{% if page.content %}{{ page.content|safe }}{% endif %}
 	</body>
 	</html>
+	```
 
 For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)
 
