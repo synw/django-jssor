@@ -40,7 +40,7 @@ Configuration
 		'sorl.thumbnail',
 		'jssor',
 	
-- Make sure you `ledia` folder contains these subfolders: `jssor, jssor/thumbnails`
+- Make sure you `media` folder contains these subfolders: `jssor, jssor/thumbnails`
 	
 Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base template to load the javascript
 
