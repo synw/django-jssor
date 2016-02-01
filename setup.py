@@ -20,7 +20,7 @@ setup(
   install_requires=[
         "Django >= 1.8.0",
         'django-autoslug',
-        'sorl-thumbnails',
+        'sorl-thumbnail',
         'Pillow'
     ],
   zip_safe=False
