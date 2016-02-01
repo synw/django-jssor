@@ -68,6 +68,6 @@ A basic template:
 </body>
 </html>
   ```
-For the urls check `urls.py` in the example
+For the urls check [urls.py](urls.py)
 
 For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)

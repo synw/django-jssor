@@ -40,7 +40,7 @@ Configuration
 		'sorl.thumbnail',
 		'jssor',
 	
-- Create the following directories in you media folder: `jssor, jssor/thumbnails`
+- Make sure you `ledia` folder contains these subfolders: `jssor, jssor/thumbnails`
 	
 Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base template to load the javascript
 
@@ -75,13 +75,15 @@ Fork and add more templates from the [jssor catalog](http://jssor.com/demos/)
 
 You will need this in settings:
 
-	SLIDESHOW_TYPES = (
-		('jssor/full_width_slider.html',_(u'Full width slider')),
-		('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
-		('jssor/banner_slider.html',_(u'Banner slider')),
-		('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
-		# Add your templates here
-		)
+  ```python
+SLIDESHOW_TYPES = (
+	('jssor/full_width_slider.html',_(u'Full width slider')),
+	('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
+	('jssor/banner_slider.html',_(u'Banner slider')),
+	('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
+	# Add your templates here
+	)
+  ```
 
 Todo
 --------------
