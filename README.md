@@ -47,7 +47,7 @@ Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base 
 Example usage
 --------------
 
-Check (the example)[example]
+Check [the example](example)
 
 Options
 --------------
