@@ -39,9 +39,8 @@ class SlideTest(TestCase):
 
     def create_slide(self, title='Test slide', slideshow=None, order=10, link='/'):
         self.image = tempfile.NamedTemporaryFile(suffix=".jpg").name
-        self.thumbnail = tempfile.NamedTemporaryFile(suffix=".jpg").name
         self.slideshow = slideshow
-        slide = Slide.objects.create(title=title, slideshow=slideshow, order=order, link=link, image=self.image, thumbnail=self.thumbnail)
+        slide = Slide.objects.create(title=title, slideshow=slideshow, order=order, link=link, image=self.image)
         return slide
     
     def test_slide_creation(self):
@@ -49,13 +48,12 @@ class SlideTest(TestCase):
         slide=self.create_slide(slideshow=slideshow)
         self.assertTrue(isinstance(slide, Slide))
         self.assertEqual(slide.title, "Test slide")
-        self.assertEqual(slide.__unicode__(), "Test slide ( Slideshow )")
+        self.assertEqual(slide.__unicode__(), "Test slide")
         self.assertEqual(slide.image, self.image)
-        self.assertEqual(slide.thumbnail, self.thumbnail)
         self.assertEqual(slide.slideshow, self.slideshow)
         self.assertEqual(slide.order, 10)
         self.assertEqual(slide.link, '/')
-        self.assertEqual(str(slide),unicode(slide.title)+' ( '+slideshow.title+' )')
+        self.assertEqual(str(slide),unicode(slide.title))
         self.assertFalse(slide.link_is_blank)
         
     def test_slide_with_no_slideshow(self):
