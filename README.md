@@ -8,20 +8,20 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 Install
 --------------
 
-1. Clone:
+:one: Clone:
 
   ```bash
 cd to_your_project_main_dir
 git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
   ```
 
-2. Install dependencies:
+:two: Install dependencies:
 
   ```bash
 pip install django-autoslug sorl-thumbnail
   ```
 
-3. Migrate
+:three: Migrate
 		
   ```bash
 python manage.py check
