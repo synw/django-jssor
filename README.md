@@ -12,7 +12,7 @@ Install
 
   ```bash
 cd to_your_project_main_dir
-git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
+git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
   ```
 
 2. Install dependencies:
