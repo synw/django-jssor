@@ -18,7 +18,7 @@ git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . &&
 :two: Install dependencies:
 
   ```bash
-pip install django-autoslug
+pip install Pillow django-autoslug
   ```
 
 :three: Migrate
@@ -65,7 +65,7 @@ Or directly in the template:
 {% endwith %}
   ```
 
-By default it loads the necessary jssor js and css files in the {% block extra_header %} of your main template: if you don't want these to be loaded set the variable do_not_load_jssor=True the same way
+By default it loads the necessary jssor js and css files in the `{% block extra_header %}` of your main template: if you don't want these to be loaded set the variable `do_not_load_jssor=True` the same way
 
 Developement
 --------------
