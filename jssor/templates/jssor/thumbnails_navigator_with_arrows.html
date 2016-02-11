@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles thumbnail %}
 {% block extra_header %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
@@ -71,17 +71,15 @@
         </div>
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 720px; height: 480px;
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width:{{ slideshow.width }}px; height:{{ slideshow.height }}px;
             overflow: hidden;">
             {% for slide in slides %}
-            <div>
-	            {% if slide.link %}
-	                <a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
-	            {% else %}
-	                <img u="image" src="{{ slide.image.url }}" />
-	            {% endif %}
-                <img u="thumb" src="{{ slide.thumbnail.url }}" />
-            </div>
+	            <div>
+		            {% if slide.link %}<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>{% endif %}
+						<img u="image" src="{{ slide.image.url }}"  alt="" />
+		            {% if slide.link %}</a>{% endif %}
+						<img u="thumb" src="{{ slide.image.url }}"  style="max-height:200px;max-width:200px;" alt="" />
+	            </div>
             {% endfor %}
         </div>
         <!--#region Thumbnail Navigator Skin Begin -->
@@ -162,7 +160,7 @@
                 }
         </style>
         <!-- thumbnail navigator container -->
-        <div u="thumbnavigator" class="jssort07" style="width: {{ slideshow.width }}px; height: 100px; left: 0px; bottom: 0px;">
+        <div u="thumbnavigator" class="jssort07" style="width: 200px; height: 200px; left: 0px; bottom: 0px;">
             <!-- Thumbnail Item Skin Begin -->
             <div u="slides" style="cursor: default;">
                 <div u="prototype" class="p">

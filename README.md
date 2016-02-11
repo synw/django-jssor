@@ -18,7 +18,7 @@ git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . &&
 :two: Install dependencies:
 
   ```bash
-pip install django-autoslug sorl-thumbnail
+pip install django-autoslug
   ```
 
 :three: Migrate
@@ -37,7 +37,6 @@ Configuration
 		'django.contrib.sites',
 		'django.contrib.flatpages'
 		'django-autoslug',
-		'sorl.thumbnail',
 		'jssor',
 	
 - Make sure you `media` folder contains these subfolders: `jssor, jssor/thumbnails`

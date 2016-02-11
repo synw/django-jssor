@@ -1,4 +1,4 @@
-{% load staticfiles thumbnail %}
+{% load staticfiles %}
 {% block extra_header %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
@@ -98,9 +98,7 @@
                 {% for slide in slides %}
 	            <div>
 	                {% if slide.link %}<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>{% endif %}
-						{% thumbnail slide.image "1000x600" as img %}
-							<img src="{{ img.url }}"  alt="" style="margin:{{ img|margin:"1000x600" }}" />
-						{% endthumbnail %}	
+						<img src="{{ slide.image.url }}"  alt="" />	
 					{% if slide.link %}</a>{% endif %}
 	            </div>
 	            {% endfor %}

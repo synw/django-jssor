@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 15:40+0200\n"
+"POT-Creation-Date: 2016-02-03 13:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,84 +18,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:12
+#: jssor/models.py:14 jssor/tests.py:10
 msgid "Full width slider"
 msgstr "Pleine largeur"
 
-#: models.py:13
+#: jssor/models.py:15 jssor/tests.py:11
 msgid "Thumbnails navigator with arrows"
 msgstr "Navigateur de vignettes"
 
-#: models.py:14
+#: jssor/models.py:16 jssor/tests.py:12
 msgid "Banner slider"
 msgstr "Slider de bannières"
 
-#: models.py:20 models.py:36
+#: jssor/models.py:17 jssor/tests.py:13
+#, fuzzy
+#| msgid "Banner slider"
+msgid "Bootstrap slider"
+msgstr "Slider de bannières"
+
+#: jssor/models.py:22 jssor/models.py:40
 msgid "Title"
 msgstr "Titre"
 
-#: models.py:21
-msgid "Id"
-msgstr "Identifiant"
-
-#: models.py:21
-msgid ""
-"This field must not contain any spaces, special characters or capital letter"
-msgstr ""
-"Ce champs ne doit contenir ni espaces, ni majuscules ni caractères spéciaux"
-
-#: models.py:22
+#: jssor/models.py:26
 msgid "Slideshow type"
 msgstr "Type de slideshow"
 
-#: models.py:23
+#: jssor/models.py:27
 msgid "Autoplay"
 msgstr "Autoplay"
 
-#: models.py:24
+#: jssor/models.py:28
 msgid "Width"
 msgstr ""
 
-#: models.py:25
+#: jssor/models.py:29
 msgid "Height"
 msgstr ""
 
-#: models.py:28 models.py:39
+#: jssor/models.py:32 jssor/models.py:44
 msgid "Slideshow"
 msgstr "Slideshow"
 
-#: models.py:29
+#: jssor/models.py:33
 msgid "Slideshows"
 msgstr "Slideshows"
 
-#: models.py:37
+#: jssor/models.py:43
 msgid "Image"
 msgstr "Image"
 
-#: models.py:38
-msgid "Thumbnail"
-msgstr "Vignette"
-
-#: models.py:40
+#: jssor/models.py:45
 msgid "Order"
 msgstr "Ordre"
 
-#: models.py:41
+#: jssor/models.py:46
 msgid "Link"
 msgstr "Lien"
 
-#: models.py:42
+#: jssor/models.py:47
 msgid "Open link in a new tab"
 msgstr "Ouvrir le lien dans un nouvel onglet"
 
-#: models.py:46
+#: jssor/models.py:51
 msgid "Slide"
 msgstr "Slide"
 
-#: models.py:47
+#: jssor/models.py:52
 msgid "Slides"
 msgstr "Slides"
 
-#: models.py:53
-msgid " ( No slideshow )"
-msgstr " ( Pas de slideshow )"
+#~ msgid "Id"
+#~ msgstr "Identifiant"
+
+#~ msgid ""
+#~ "This field must not contain any spaces, special characters or capital "
+#~ "letter"
+#~ msgstr ""
+#~ "Ce champs ne doit contenir ni espaces, ni majuscules ni caractères "
+#~ "spéciaux"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Vignette"
+
+#~ msgid " ( No slideshow )"
+#~ msgstr " ( Pas de slideshow )"
