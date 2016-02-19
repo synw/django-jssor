@@ -47,7 +47,7 @@ class Slide(models.Model):
     link_is_blank = models.BooleanField(default=False, verbose_name=_(u'Open link in a new tab'))
     
     class Meta:
-        ordering = ('order', 'slideshow')
+        ordering = ('order', 'slideshow','created')
         verbose_name=_(u'Slide')
         verbose_name_plural = _(u'Slides')
 

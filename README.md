@@ -36,7 +36,6 @@ Configuration
 
 		'django.contrib.sites',
 		'django.contrib.flatpages'
-		'django-autoslug',
 		'jssor',
 	
 - Make sure you `media` folder contains these subfolders: `jssor, jssor/thumbnails`
