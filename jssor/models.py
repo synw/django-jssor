@@ -19,7 +19,7 @@ else:
     
 
 class Slideshow(models.Model):
-    title = models.CharField(max_length=250, null=True, verbose_name=_(u'Title'))
+    title = models.CharField(max_length=250, null=True, blank=True, verbose_name=_(u'Title'))
     slug = AutoSlugField(populate_from='title', unique=True, null=True)
     edited = models.DateTimeField(editable=False, null=True, auto_now=True, verbose_name=u'Edité le')
     created = models.DateTimeField(editable=False, null=True, auto_now_add=True)
@@ -37,7 +37,7 @@ class Slideshow(models.Model):
     
     
 class Slide(models.Model):
-    title = models.CharField(max_length=250, null=True, verbose_name=_(u'Title'))
+    title = models.CharField(max_length=250, null=True, blank=True, verbose_name=_(u'Title'))
     edited = models.DateTimeField(editable=False, null=True, auto_now=True, verbose_name=u'Edité le')
     created = models.DateTimeField(editable=False, null=True, auto_now_add=True)
     image = ImageField(upload_to='jssor', blank=False, null=True, verbose_name=_(u'Image'))
