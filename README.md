@@ -8,14 +8,18 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 Install
 --------------
 
-:one: Clone:
+:one: Install or clone the latest developpement version:
+
+  ```bash
+pip install django-jssor
+  ```
 
   ```bash
 cd to_your_project_main_dir
 git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
   ```
 
-:two: Install dependencies:
+:two: Install dependencies if you cloned the repository:
 
   ```bash
 pip install Pillow django-autoslug
@@ -40,7 +44,7 @@ Configuration
 	
 - Make sure you `media` folder contains these subfolders: `jssor, jssor/thumbnails`
 	
-Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base template to load the javascript
+Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base template to load the necessary javascript
 
 Example usage
 --------------
@@ -76,7 +80,6 @@ You will need this in settings:
   ```python
 SLIDESHOW_TYPES = (
 	('jssor/full_width_slider.html',_(u'Full width slider')),
-	('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
 	('jssor/banner_slider.html',_(u'Banner slider')),
 	('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
 	# Add your templates here
