@@ -27,7 +27,7 @@
             var options = {
                 $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
                 $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
-                $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $AutoPlayInterval: {% if slideshow.autoplay_interval %}{{ slideshow.autoplay_interval }}{% else %}4{% endif %}000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
                 $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
                 $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
@@ -52,7 +52,7 @@
 
                 $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
                     $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
-                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $ChanceToShow: {% if slideshow.bullet_navigator %}2{% else %}0{% endif %},                               //[Required] 0 Never, 1 Mouse Over, 2 Always
                     $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
                     $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
@@ -91,7 +91,7 @@
     <!-- Jssor Slider Begin -->
     <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
     <div id="slider1_container" style="position: relative; margin: 0 auto;
-        top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        top: 0px; left: 0px; width: 1300px; height: {{ slideshow.height }}px; overflow: hidden;">
         <!-- Loading Screen -->
         <div u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
@@ -114,46 +114,46 @@
             </div>
             {% endfor %}
         </div>
-                
-        <!--#region Bullet Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
-        <style>
-            /* jssor slider bullet navigator skin 21 css */
-            /*
-            .jssorb21 div           (normal)
-            .jssorb21 div:hover     (normal mouseover)
-            .jssorb21 .av           (active)
-            .jssorb21 .av:hover     (active mouseover)
-            .jssorb21 .dn           (mousedown)
-            */
-            .jssorb21 {
-                position: absolute;
-            }
-            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
-                position: absolute;
-                /* size of bullet elment */
-                width: 19px;
-                height: 19px;
-                text-align: center;
-                line-height: 19px;
-                color: white;
-                font-size: 12px;
-                background: url({% static 'jssor/img/b21.png' %}) no-repeat;
-                overflow: hidden;
-                cursor: pointer;
-            }
-            .jssorb21 div { background-position: -5px -5px; }
-            .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
-            .jssorb21 .av { background-position: -65px -5px; }
-            .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
-        </style>
-        <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb21" style="bottom: 26px; right: 6px;">
-            <!-- bullet navigator item prototype -->
-            <div u="prototype"></div>
-        </div>
-        <!--#endregion Bullet Navigator Skin End -->
-        
+        {% if slideshow.bullet_navigator %}        
+	        <!--#region Bullet Navigator Skin Begin -->
+	        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+	        <style>
+	            /* jssor slider bullet navigator skin 21 css */
+	            /*
+	            .jssorb21 div           (normal)
+	            .jssorb21 div:hover     (normal mouseover)
+	            .jssorb21 .av           (active)
+	            .jssorb21 .av:hover     (active mouseover)
+	            .jssorb21 .dn           (mousedown)
+	            */
+	            .jssorb21 {
+	                position: absolute;
+	            }
+	            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+	                position: absolute;
+	                /* size of bullet elment */
+	                width: 19px;
+	                height: 19px;
+	                text-align: center;
+	                line-height: 19px;
+	                color: white;
+	                font-size: 12px;
+	                background: url({% static 'jssor/img/b21.png' %}) no-repeat;
+	                overflow: hidden;
+	                cursor: pointer;
+	            }
+	            .jssorb21 div { background-position: -5px -5px; }
+	            .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+	            .jssorb21 .av { background-position: -65px -5px; }
+	            .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+	        </style>
+	        <!-- bullet navigator container -->
+	        <div u="navigator" class="jssorb21" style="bottom: 26px; right: 6px;">
+	            <!-- bullet navigator item prototype -->
+	            <div u="prototype"></div>
+	        </div>
+	        <!--#endregion Bullet Navigator Skin End -->
+        {% endif %}
         <!--#region Arrow Navigator Skin Begin -->
         <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
         <style>

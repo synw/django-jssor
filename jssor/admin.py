@@ -2,17 +2,16 @@
 
 from django import forms
 from django.contrib import admin
-from sorl.thumbnail.admin import AdminImageMixin
 from jssor.models import Slideshow, Slide
 
 
-class SlideInline(AdminImageMixin, admin.TabularInline):
+class SlideInline(admin.TabularInline):
     model = Slide
     extra = 0
     
     
 @admin.register(Slideshow)
-class SlideshowAdmin(AdminImageMixin, admin.ModelAdmin):
+class SlideshowAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = (SlideInline,)
     list_display = ['title','template_name']
@@ -21,7 +20,7 @@ class SlideshowAdmin(AdminImageMixin, admin.ModelAdmin):
     
     
 @admin.register(Slide)
-class SlideAdmin(AdminImageMixin, admin.ModelAdmin):
+class SlideAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     list_per_page = 10
     list_display = ['title','image','slideshow','order']
