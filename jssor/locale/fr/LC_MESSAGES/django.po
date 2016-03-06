@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 13:24+0000\n"
+"POT-Creation-Date: 2016-03-06 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: jssor/models.py:14 jssor/tests.py:10
+#: jssor/apps.py:6 jssor/models.py:33
+msgid "Slideshows"
+msgstr "Slideshows"
+
+#: jssor/models.py:13 jssor/tests.py:10
 msgid "Full width slider"
 msgstr "Pleine largeur"
 
-#: jssor/models.py:15 jssor/tests.py:11
-msgid "Thumbnails navigator with arrows"
-msgstr "Navigateur de vignettes"
-
-#: jssor/models.py:16 jssor/tests.py:12
+#: jssor/models.py:14 jssor/tests.py:11
 msgid "Banner slider"
 msgstr "Slider de bannières"
 
-#: jssor/models.py:17 jssor/tests.py:13
+#: jssor/models.py:15 jssor/tests.py:12
 #, fuzzy
 #| msgid "Banner slider"
 msgid "Bootstrap slider"
 msgstr "Slider de bannières"
 
-#: jssor/models.py:22 jssor/models.py:40
+#: jssor/models.py:20 jssor/models.py:40
 msgid "Title"
 msgstr "Titre"
 
-#: jssor/models.py:26
+#: jssor/models.py:24
 msgid "Slideshow type"
 msgstr "Type de slideshow"
 
-#: jssor/models.py:27
+#: jssor/models.py:25
 msgid "Autoplay"
 msgstr "Autoplay"
 
+#: jssor/models.py:26
+#, fuzzy
+#| msgid "Autoplay"
+msgid "Autoplay interval"
+msgstr "Intervalle autoplay"
+
+#: jssor/models.py:26
+msgid "Number of seconds between slides"
+msgstr "Nombre de secondes entre les slides"
+
+#: jssor/models.py:27
+msgid "Bullet navigator"
+msgstr "Bullet navigator"
+
 #: jssor/models.py:28
 msgid "Width"
-msgstr ""
+msgstr "Largeur"
 
 #: jssor/models.py:29
 msgid "Height"
-msgstr ""
+msgstr "Hauteur"
 
 #: jssor/models.py:32 jssor/models.py:44
 msgid "Slideshow"
 msgstr "Slideshow"
-
-#: jssor/models.py:33
-msgid "Slideshows"
-msgstr "Slideshows"
 
 #: jssor/models.py:43
 msgid "Image"
@@ -87,6 +97,9 @@ msgstr "Slide"
 #: jssor/models.py:52
 msgid "Slides"
 msgstr "Slides"
+
+#~ msgid "Thumbnails navigator with arrows"
+#~ msgstr "Navigateur de vignettes"
 
 #~ msgid "Id"
 #~ msgstr "Identifiant"

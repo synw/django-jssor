@@ -8,7 +8,6 @@ from jssor.models import Slideshow, Slide
 
 SLIDESHOW_TYPES = (
                    ('jssor/full_width_slider.html',_(u'Full width slider')),
-                   ('jssor/thumbnails_navigator_with_arrows.html',_(u'Thumbnails navigator with arrows')),
                    ('jssor/banner_slider.html',_(u'Banner slider')),
                    ('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
                    )
@@ -55,10 +54,7 @@ class SlideTest(TestCase):
         self.assertEqual(slide.link, '/')
         self.assertEqual(str(slide),unicode(slide.title))
         self.assertFalse(slide.link_is_blank)
-        
-    def test_slide_with_no_slideshow(self):
-        slide=self.create_slide(slideshow=None)
-        self.assertEqual(str(slide),unicode(slide.title))
+
         
         
     
