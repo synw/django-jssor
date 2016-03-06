@@ -51,6 +51,8 @@ Example usage
 
 Check [the example](example)
 
+Note: for a ready to use implementation in a page management app check [django-alapage](https://github.com/synw/django-alapage)
+
 Options
 --------------
 
