@@ -86,7 +86,7 @@ SLIDESHOW_TYPES = (
 Todo
 --------------
 
-- [ ] Add more options to control the slideshow behavior like AutoPlayInterval, ArrowKeyNavigation, JssorBulletNavigator stuff
+- [ ] Add more options to control the slideshow behavior like ArrowKeyNavigation
 - [ ] Add more jssor templates and slideshow types
 - [x] More tests
-- [ ] Editor management
+
