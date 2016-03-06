@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'django-jssor',
   packages=find_packages(),
+  include_package_data=True,
   version = '0.3',
   description = 'Jssor slideshows for Django',
   author = 'synw',
