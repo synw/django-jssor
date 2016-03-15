@@ -16,7 +16,7 @@ pip install django-jssor
 
   ```bash
 cd to_your_project_main_dir
-git clone https://github.com/synw/django-jssor.git && mv django-jssor/jssor . && mkdir media/jssor && mkdir media/jssor/thumbnails && rm -rf django-jssor
+mkdir media/jssor && mkdir media/jssor/thumbnails
   ```
 
 :two: Install dependencies if you cloned the repository:
