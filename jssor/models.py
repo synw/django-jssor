@@ -3,13 +3,11 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from autoslug import AutoSlugField
 from jssor.conf import SLIDESHOW_TYPES
     
 
 class Slideshow(models.Model):
     title = models.CharField(max_length=250, verbose_name=_(u'Title'))
-    slug = AutoSlugField(populate_from='title', unique=True)
     edited = models.DateTimeField(editable=False, auto_now=True, verbose_name=u'Edité le')
     created = models.DateTimeField(editable=False, auto_now_add=True)
     template_name = models.CharField(max_length=150, choices=SLIDESHOW_TYPES, default=SLIDESHOW_TYPES[0][0], verbose_name=_(u'Slideshow type'))
