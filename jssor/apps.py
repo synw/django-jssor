@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class JssorConfig(AppConfig):
     name = "jssor"
-    verbose_name = _("Slideshows")
+    verbose_name = _(u"Slideshows")

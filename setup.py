@@ -4,12 +4,12 @@ setup(
   name = 'django-jssor',
   packages=find_packages(),
   include_package_data=True,
-  version = '0.3.2',
+  version = '0.4',
   description = 'Jssor slideshows for Django',
   author = 'synw',
   author_email = 'synwe@yahoo.com',
   url = 'https://github.com/synw/django-jssor', 
-  download_url = 'https://github.com/synw/django-jssor/releases/tag/0.3.2', 
+  download_url = 'https://github.com/synw/django-jssor/releases/tag/0.4', 
   keywords = ['django', 'slideshows', 'jssor'], 
   classifiers = [
         'Development Status :: 3 - Alpha',
@@ -20,8 +20,8 @@ setup(
     ],
   install_requires=[
         "Django >= 1.8.0",
-        'django-autoslug',
-        'Pillow'
+        'Pillow',
+        'sorl-thumbnail'
     ],
   zip_safe=False
 )

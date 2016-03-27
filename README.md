@@ -8,7 +8,7 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 Install
 --------------
 
-:one: Install or clone the latest developpement version:
+Install or clone the latest developpement version:
 
   ```bash
 pip install django-jssor
@@ -19,13 +19,13 @@ cd to_your_project_main_dir
 mkdir media/jssor && mkdir media/jssor/thumbnails
   ```
 
-:two: Install dependencies if you cloned the repository:
+Install dependencies if you cloned the repository:
 
   ```bash
-pip install Pillow django-autoslug
+pip install Pillow sorl-thumbnail
   ```
 
-:three: Migrate
+Migrate
 		
   ```bash
 python manage.py check
@@ -36,15 +36,12 @@ python manager.py migrate
 Configuration
 --------------
 
-- Make sure your INSTALLED_APPS contains the following:
+Add 'jssor' to your INSTALLED_APPS
 
-		'django.contrib.sites',
-		'django.contrib.flatpages'
-		'jssor',
-	
-- Make sure you `media` folder contains these subfolders: `jssor, jssor/thumbnails`
-	
-Requirement: a block `{% block extra_header %}` in the \<head\> tag of the base template to load the necessary javascript
+Create `media` folder contains these subfolders: `jssor, jssor/thumbnails`
+
+Requirement: a block `{% block extra_head %}` in the \<head\> tag of the base template to load the 
+necessary javascript
 
 Example usage
 --------------
@@ -84,6 +81,7 @@ SLIDESHOW_TYPES = (
 	('jssor/full_width_slider.html',_(u'Full width slider')),
 	('jssor/banner_slider.html',_(u'Banner slider')),
 	('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
+	('jssor/images_slider.html',_(u'Images slider')),
 	# Add your templates here
 	)
   ```
@@ -93,5 +91,5 @@ Todo
 
 - [ ] Add more options to control the slideshow behavior like ArrowKeyNavigation
 - [ ] Add more jssor templates and slideshow types
-- [x] More tests
+- [ ] More tests
 

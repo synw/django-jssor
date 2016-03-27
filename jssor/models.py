@@ -4,16 +4,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from autoslug import AutoSlugField
-
-
-if hasattr(settings, 'SLIDESHOW_TYPES'):
-    SLIDESHOW_TYPES = settings.SLIDESHOW_TYPES
-else:
-    SLIDESHOW_TYPES = (
-                   ('jssor/full_width_slider.html',_(u'Full width slider')),
-                   ('jssor/banner_slider.html',_(u'Banner slider')),
-                   ('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
-                   )
+from jssor.conf import SLIDESHOW_TYPES
     
 
 class Slideshow(models.Model):
