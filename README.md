@@ -25,12 +25,13 @@ Install dependencies if you cloned the repository:
 pip install Pillow sorl-thumbnail
   ```
 
-Migrate
+Migrate and collect static files
 		
   ```bash
 python manage.py check
 python manage.py makemigrations
 python manager.py migrate
+python manage.py collectstatic
   ```
 
 Configuration
