@@ -39,10 +39,6 @@ python manage.py collectstatic
 Configuration
 --------------
 
-Add 'jssor' to your INSTALLED_APPS
-
-Create `media` folder contains these subfolders: `jssor, jssor/thumbnails`
-
 Requirement: a block `{% block extra_head %}` in the \<head\> tag of the base template to load the 
 necessary javascript
 
