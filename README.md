@@ -66,7 +66,7 @@ Or directly in the template:
 {% endwith %}
   ```
 
-By default it loads the necessary jssor js and css files in the `{% block extra_header %}` of your main template: if you don't want these to be loaded set the variable `do_not_load_jssor=True` the same way
+By default it loads the necessary jssor js and css files in the `{% block extra_head %}` of your main template: if you don't want these to be loaded set the variable `do_not_load_jssor=True` the same way
 
 Developement
 --------------
