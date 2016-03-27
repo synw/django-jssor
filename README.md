@@ -25,6 +25,8 @@ Install dependencies if you cloned the repository:
 pip install Pillow sorl-thumbnail
   ```
 
+Add `jssor` to INSTALLED_APPS. Add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails
+
 Migrate and collect static files
 		
   ```bash
