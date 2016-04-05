@@ -103,7 +103,7 @@
         </div>
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px;
-            height: 400px; overflow: hidden;">
+            height: {{ slideshow.height }}px; overflow: hidden;">
             {% for slide in slides %}
             <div>
                 {% if slide.link %}
