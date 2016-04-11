@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from jssor.conf import SLIDESHOW_TYPES
-    
+
 
 class Slideshow(models.Model):
     title = models.CharField(max_length=250, verbose_name=_(u'Title'))
@@ -23,8 +22,8 @@ class Slideshow(models.Model):
 
     def __unicode__(self):
         return unicode(self.title)
-    
-    
+
+
 class Slide(models.Model):
     title = models.CharField(max_length=250, blank=True, verbose_name=_(u'Title'))
     edited = models.DateTimeField(editable=False, auto_now=True, verbose_name=u'Edité le')
@@ -34,14 +33,11 @@ class Slide(models.Model):
     order = models.PositiveSmallIntegerField(null=True, verbose_name=_(u'Order'))
     link = models.CharField(blank=True, max_length=255, verbose_name=_(u'Link'))
     link_is_blank = models.BooleanField(default=False, verbose_name=_(u'Open link in a new tab'))
-    
+
     class Meta:
-        ordering = ('order', 'slideshow','created')
-        verbose_name=_(u'Slide')
+        ordering = ('order', 'slideshow', 'created')
+        verbose_name = _(u'Slide')
         verbose_name_plural = _(u'Slides')
 
     def __unicode__(self):
         return unicode(self.title)
-    
-    
-    
