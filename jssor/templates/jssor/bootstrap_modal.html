@@ -1,0 +1,43 @@
+{% load staticfiles i18n %}
+{% block extra_header %}
+	{% if load_jquery %}
+		<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
+	{% endif %}
+{% endblock %}
+<img src="{{ slides.0.image.url }}" style="width:{% if slideshow.width %}{{ slideshow.width }}px;{% endif %}{% if slideshow.height %}{{ show.height }}px{% endif %}" class="img-thumbnail gus" data-toggle="modal" data-target="#myModal">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <h4 class="modal-title" id="myModalLabel">{{ slideshow.title }}</h4>
+		</div>
+		<div class="modal-body">
+		  <!-- Carousel ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+      	{% for slide in slides %}
+	        <div class="item{% if forloop.first %} active{% endif %}">
+	        	{% if slide.link %}
+                	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>
+                		<img class="first-slide" u="image" src="{{ slide.image.url }}" />
+                	</a>
+                {% else %}
+                	<img u="image" src="{{ slide.image.url }}" />
+                {% endif %}
+	        </div>
+		{% endfor %}
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">{% trans 'Previous' %}</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">{% trans 'Next' %}</span>
+      </a>
+    </div><!-- /.carousel -->
+		</div>
+	  </div>
+	</div>
+  </div>

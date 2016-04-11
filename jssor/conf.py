@@ -9,7 +9,7 @@ SLIDESHOW_TYPES = (
                    ('jssor/banner_slider.html',_(u'Banner slider')),
                    ('jssor/bootstrap_slider.html',_(u'Bootstrap slider')),
                    ('jssor/images_slider.html',_(u'Images slider')),
+                   ('jssor/bootstrap_modal.html',_(u'Bootstrap modal')),
                    )
 
 getattr(settings, 'SLIDESHOW_TYPES', SLIDESHOW_TYPES)
-    
