@@ -14,8 +14,8 @@ SLIDESHOW_TYPES = (
 # models test
 class SlideshowTest(TestCase):
 
-    def create_slideshow(self, slug="slideshow", template_name="full_width_slider.html", title="Slideshow", width=780, height=300):        
-        return Slideshow.objects.create(slug=slug, template_name=template_name, title=title, width=width, height=height)
+    def create_slideshow(self, template_name="full_width_slider.html", title="Slideshow", width=780, height=300):        
+        return Slideshow.objects.create(template_name=template_name, title=title, width=width, height=height)
 
     @override_settings(SLIDESHOW_TYPES=SLIDESHOW_TYPES)
     def test_slideshow_creation(self):
@@ -24,7 +24,6 @@ class SlideshowTest(TestCase):
         self.assertTrue(isinstance(slideshow, Slideshow))
         self.assertEqual(slideshow.template_name, "full_width_slider.html")
         self.assertEqual(slideshow.title, "Slideshow")
-        self.assertEqual(slideshow.slug, "slideshow")
         self.assertEqual(slideshow.autoplay, False)
         self.assertEqual(slideshow.width, 780)
         self.assertEqual(slideshow.height, 300)
@@ -33,8 +32,8 @@ class SlideshowTest(TestCase):
 
 class SlideTest(TestCase):
     
-    def create_slideshow(self, slug="slideshow", template_name="full_width_slider.html", title="Slideshow", width=780, height=300):
-        return Slideshow.objects.create(slug=slug, template_name=template_name, title=title, width=width, height=height)
+    def create_slideshow(self, template_name="full_width_slider.html", title="Slideshow", width=780, height=300):
+        return Slideshow.objects.create(template_name=template_name, title=title, width=width, height=height)
 
     def create_slide(self, title='Test slide', slideshow=None, order=10, link='/'):
         self.image = tempfile.NamedTemporaryFile(suffix=".jpg").name
