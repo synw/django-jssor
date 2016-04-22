@@ -4,7 +4,7 @@
 		<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 	{% endif %}
 {% endblock %}
-<img src="{{ slides.0.image.url }}" style="width:{% if slideshow.width %}{{ slideshow.width }}px;{% endif %}{% if slideshow.height %}{{ show.height }}px{% endif %}" class="img-thumbnail gus" data-toggle="modal" data-target="#myModal">
+<img src="{{ slides.0.image.url }}" style="width:{{ slideshow.width }}{{ slideshow_width }}px;{{ slideshow_height }}px" class="img-thumbnail gus" data-toggle="modal" data-target="#myModal">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
