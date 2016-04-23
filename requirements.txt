@@ -1,3 +1,2 @@
 Django>=1.8
 Pillow>=2.9.0
-sorl-thumbnail

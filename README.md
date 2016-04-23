@@ -1,12 +1,10 @@
-Jssor slideshows for Django
-==============
+# Jssor slideshows for Django
 
 [![Build Status](https://travis-ci.org/synw/django-jssor.svg?branch=master)](https://travis-ci.org/synw/django-jssor)
 
 This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 
-Install
---------------
+# Install
 
 Install or clone the latest developpement version:
 
@@ -25,10 +23,10 @@ Install dependencies if you cloned the repository:
 pip install Pillow sorl-thumbnail
   ```
 
-Add `jssor` to INSTALLED_APPS. Add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails
+Add `jssor` to INSTALLED_APPS. Install and add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails
 
 Migrate and collect static files
-		
+
   ```bash
 python manage.py check
 python manage.py makemigrations
@@ -36,21 +34,30 @@ python manager.py migrate
 python manage.py collectstatic
   ```
 
-Configuration
---------------
+# Configuration
 
 Requirement: a block `{% block extra_head %}` in the \<head\> tag of the base template to load the 
 necessary javascript
 
-Example usage
---------------
+# Example usage
+
+## Use it whith slideshow instances
 
 Check [the example](example)
 
-Note: for a ready to use implementation in a page management app check [django-alapage](https://github.com/synw/django-alapage)
+## Use the templates directly from some images
 
-Options
---------------
+  ```django
+  {% with mymodel.images.all as slides %}
+  	{% with 800 as slideshow_width %}
+  		{% with 500 as slideshow_height %}
+  			{% include "jssor/images_slider.html" %}
+  		{% endwith %}
+  	{% endwith %}
+  {% endwith %}
+  ```
+
+# Options
 
 By default the template will not load jquery, asuming that you already did elsewhere. You can change this behavior in the view
 
@@ -68,8 +75,7 @@ Or directly in the template:
 
 By default it loads the necessary jssor js and css files in the `{% block extra_head %}` of your main template: if you don't want these to be loaded set the variable `do_not_load_jssor=True` the same way
 
-Developement
---------------
+# Developement
 
 Fork and add more templates from the [jssor catalog](http://jssor.com/demos/) 
 
@@ -85,8 +91,7 @@ SLIDESHOW_TYPES = (
 	)
   ```
 
-Todo
---------------
+# Todo
 
 - [ ] Add more options to control the slideshow behavior like ArrowKeyNavigation
 - [ ] Add more jssor templates and slideshow types

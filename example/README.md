@@ -69,5 +69,3 @@ A basic template:
 </html>
   ```
 For the urls check [urls.py](urls.py)
-
-For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)
