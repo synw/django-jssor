@@ -56,7 +56,7 @@ A basic template:
 <html>
 <head>
 	<title>{% block title %}{{ page.title }}{% endblock %}</title>
-	{% block extra_header %}{% endblock %}
+	{% block extra_head %}{% endblock %}
 </head>
 
 <body>
