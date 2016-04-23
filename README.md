@@ -6,7 +6,7 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 
 # Install
 
-Install or clone the latest developpement version:
+Install or clone for the latest developpement version:
 
   ```bash
 pip install django-jssor
@@ -20,7 +20,7 @@ mkdir media/jssor && mkdir media/jssor/thumbnails
 Install dependencies if you cloned the repository:
 
   ```bash
-pip install Pillow sorl-thumbnail
+pip install Pillow
   ```
 
 Add `jssor` to INSTALLED_APPS. Install and add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails
@@ -41,11 +41,11 @@ necessary javascript
 
 # Example usage
 
-## Use it whith slideshow instances
+### Use it whith slideshow instances
 
 Check [the example](example)
 
-## Use the templates directly from some images
+### Use the templates directly from some images
 
   ```django
   {% with mymodel.images.all as slides %}
