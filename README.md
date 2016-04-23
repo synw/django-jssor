@@ -95,5 +95,4 @@ SLIDESHOW_TYPES = (
 
 - [ ] Add more options to control the slideshow behavior like ArrowKeyNavigation
 - [ ] Add more jssor templates and slideshow types
-- [ ] More tests
 
