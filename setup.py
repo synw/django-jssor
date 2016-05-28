@@ -14,7 +14,7 @@ setup(
   download_url = 'https://github.com/synw/django-jssor/releases/tag/'+version, 
   keywords = ['django', 'slideshows', 'jssor'], 
   classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Framework :: Django :: 1.8',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
