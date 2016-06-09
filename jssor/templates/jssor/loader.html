@@ -1,0 +1,14 @@
+{% load staticfiles %}
+
+<div id="slideshow"></div>
+<script type="text/javascript">
+	function fire_slideshow(slideshow_group) {
+		var body_width = $(window).width();
+		var body_height = $(window).height();
+		var url = "{% url 'slideshow-dispatcher' group_id=slideshow_group screen_width=123578545895 screen_height=546574524552455 %}";
+		url = url.replace("123578545895", body_width.toString());
+		url = url.replace("546574524552455", body_height.toString().toString());
+		$('#slideshow').load(url);
+	}
+	fire_slideshow('{{ slideshow_group }}');
+</script>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 09:55+0000\n"
+"POT-Creation-Date: 2016-06-09 15:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,85 +18,121 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: jssor/apps.py:6 jssor/models.py:33
+#: apps.py:7 models.py:24
 msgid "Slideshows"
 msgstr "Slideshows"
 
-#: jssor/models.py:13 jssor/tests.py:10
+#: conf.py:8 tests.py:10
 msgid "Full width slider"
 msgstr "Pleine largeur"
 
-#: jssor/models.py:14 jssor/tests.py:11
+#: conf.py:9 tests.py:11
 msgid "Banner slider"
 msgstr "Slider de bannières"
 
-#: jssor/models.py:15 jssor/tests.py:12
+#: conf.py:10 tests.py:12
 #, fuzzy
 #| msgid "Banner slider"
 msgid "Bootstrap slider"
 msgstr "Slider de bannières"
 
-#: jssor/models.py:20 jssor/models.py:40
+#: conf.py:11
+#, fuzzy
+#| msgid "Banner slider"
+msgid "Images slider"
+msgstr "Slider de bannières"
+
+#: conf.py:12
+#, fuzzy
+#| msgid "Banner slider"
+msgid "Bootstrap modal"
+msgstr "Slider de bannières"
+
+#: conf.py:16
+msgid "No breakpoint"
+msgstr "Pas de breakpoint"
+
+#: models.py:9 models.py:31
 msgid "Title"
 msgstr "Titre"
 
-#: jssor/models.py:24
+#: models.py:12
 msgid "Slideshow type"
 msgstr "Type de slideshow"
 
-#: jssor/models.py:25
+#: models.py:13
 msgid "Autoplay"
 msgstr "Autoplay"
 
-#: jssor/models.py:26
+#: models.py:14
 #, fuzzy
 #| msgid "Autoplay"
 msgid "Autoplay interval"
 msgstr "Intervalle autoplay"
 
-#: jssor/models.py:26
+#: models.py:14
 msgid "Number of seconds between slides"
 msgstr "Nombre de secondes entre les slides"
 
-#: jssor/models.py:27
+#: models.py:15
 msgid "Bullet navigator"
 msgstr "Bullet navigator"
 
-#: jssor/models.py:28
+#: models.py:16
 msgid "Width"
 msgstr "Largeur"
 
-#: jssor/models.py:29
+#: models.py:17
 msgid "Height"
 msgstr "Hauteur"
 
-#: jssor/models.py:32 jssor/models.py:44
+#: models.py:18
+msgid "Group_id"
+msgstr ""
+
+#: models.py:19
+msgid "Breakpoint"
+msgstr ""
+
+#: models.py:20
+msgid "Fullscreen slideshow"
+msgstr "Slideshow plein écran"
+
+#: models.py:23 models.py:35
 msgid "Slideshow"
 msgstr "Slideshow"
 
-#: jssor/models.py:43
+#: models.py:34
 msgid "Image"
 msgstr "Image"
 
-#: jssor/models.py:45
+#: models.py:36
 msgid "Order"
 msgstr "Ordre"
 
-#: jssor/models.py:46
+#: models.py:37
 msgid "Link"
 msgstr "Lien"
 
-#: jssor/models.py:47
+#: models.py:38
 msgid "Open link in a new tab"
 msgstr "Ouvrir le lien dans un nouvel onglet"
 
-#: jssor/models.py:51
+#: models.py:42
 msgid "Slide"
 msgstr "Slide"
 
-#: jssor/models.py:52
+#: models.py:43
 msgid "Slides"
 msgstr "Slides"
+
+#: templates/jssor/bootstrap_modal.html:33
+msgid "Previous"
+msgstr "Précédent"
+
+#: templates/jssor/bootstrap_modal.html:37
+msgid "Next"
+msgstr "Suivant"
 
 #~ msgid "Thumbnails navigator with arrows"
 #~ msgstr "Navigateur de vignettes"

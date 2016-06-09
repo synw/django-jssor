@@ -13,7 +13,7 @@ class SlideInline(admin.TabularInline):
 class SlideshowAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = (SlideInline,)
-    list_display = ['title', 'template_name']
+    list_display = ['title', 'template_name', 'width', 'height', 'breakpoint', 'group_id']
     list_filter = ['template_name', 'created', 'edited']
     search_fields = ['title']
 

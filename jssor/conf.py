@@ -12,4 +12,13 @@ SLIDESHOW_TYPES =   (
                     ('jssor/bootstrap_modal.html', _(u'Bootstrap modal')),
                     )
 
-getattr(settings, 'SLIDESHOW_TYPES', SLIDESHOW_TYPES)
+BREAKPOINTS = (
+               (0, _(u'No breakpoint')),
+               (320, 'Xxs: 320x480'),
+               (360, 'Xs: 360x640'),
+               )
+
+SLIDESHOW_TYPES = getattr(settings, 'JSSOR_SLIDESHOW_TYPES', SLIDESHOW_TYPES)
+BREAKPOINTS = getattr(settings, 'JSSOR_BREAKPOINTS', BREAKPOINTS)
+
+
