@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}
 {% endblock %}
+{% include "jssor/fullscreen.html" %}
     <script>
         jQuery(document).ready(function ($) {
             //Reference http://www.jssor.com/development/slider-with-slideshow-jquery.html
@@ -74,7 +75,7 @@
 			function ScaleSlider() {
 			    var bodyWidth = document.body.clientWidth - 50;
 			    if (bodyWidth)
-			        jssor_sliderb.$ScaleWidth(Math.min(bodyWidth, {{ slideshow.width }}{{ slideshow_width }}));
+			        jssor_sliderb.$ScaleWidth(Math.min(bodyWidth, {% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}));
 			    else
 			        window.setTimeout(ScaleSlider, 30);
 			}
@@ -88,8 +89,9 @@
     </script>
     <!-- Jssor Slider Begin -->
     <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
-    <div id="sliderb_container" class="gi" style="position: relative; width: {{ slideshow.width }}{{ slideshow_width }}px;
-        height: {{ slideshow.height }}{{ slideshow_height }}px; overflow: hidden;">
+    <div id="sliderb_container" class="gi" style="position: relative; 
+    	width: {% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}px;
+        height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px; overflow: hidden;">
 
         <!-- Loading Screen -->
         <div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -102,7 +104,9 @@
         </div>
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: {{ slideshow.width }}{{ slideshow_width }}px; height: {{ slideshow.height }}{{ slideshow_height }}px;
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; 
+        width: {% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}px; 
+        height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px;
             overflow: hidden;">
             {% for slide in slides %}
             <div>
