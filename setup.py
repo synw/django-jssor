@@ -15,13 +15,12 @@ setup(
   keywords = ['django', 'slideshows', 'jssor'], 
   classifiers = [
         'Development Status :: 4 - Beta',
-        'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.9',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
     ],
   install_requires=[
-        "Django >= 1.8.0",
         'Pillow',
     ],
   zip_safe=False
