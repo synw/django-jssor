@@ -23,6 +23,8 @@ class SlideshowDispatcherView(TemplateView):
                 slideshow = slideshows.filter(breakpoint=320)[0]
             elif screen_width <= 360:
                 slideshow = slideshows.filter(breakpoint=360)[0]
+            elif screen_width <= 769:
+                slideshow = slideshows.filter(breakpoint=768)[0]
             context['slideshow'] = slideshow
             context['slides'] = slideshow.slides.all()
             self.slideshow = slideshow
