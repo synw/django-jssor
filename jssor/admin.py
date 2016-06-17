@@ -2,9 +2,10 @@
 
 from django.contrib import admin
 from jssor.models import Slideshow, Slide
+from jssor.forms import JssorAdminForm
 
 
-class SlideInline(admin.TabularInline):
+class SlideInline(admin.StackedInline):
     model = Slide
     extra = 0
 
@@ -20,6 +21,7 @@ class SlideshowAdmin(admin.ModelAdmin):
 
 @admin.register(Slide)
 class SlideAdmin(admin.ModelAdmin):
+    form = JssorAdminForm
     date_hierarchy = 'created'
     list_per_page = 10
     list_display = ['title', 'image', 'slideshow', 'order']

@@ -106,6 +106,7 @@
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: {% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}px;
             height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px; overflow: hidden;">
+            <div data-p="225.00" style="display: none;">
             {% for slide in slides %}
             <div>
                 {% if slide.link %}
@@ -113,8 +114,10 @@
                 {% else %}
                 	<img u="image" src="{{ slide.image.url }}" />
                 {% endif %}
+                {{ slide.html|safe }}
             </div>
             {% endfor %}
+            </div>
         </div>
         {% if slideshow.bullet_navigator %}        
 	        <!--#region Bullet Navigator Skin Begin -->

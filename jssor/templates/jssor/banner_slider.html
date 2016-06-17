@@ -116,6 +116,7 @@
                 	<img u="image" src="{{ slide.image.url }}" />
                 {% endif %}
                 <div u="thumb">{% if slide.title %}{{ slide.title }}{% endif %}</div>
+                {{ slide.html|safe }}
             </div>
             {% endfor %}
         </div>

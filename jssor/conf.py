@@ -16,6 +16,7 @@ BREAKPOINTS = (
                (0, _(u'No breakpoint')),
                (320, 'Xxs: 320x480'),
                (360, 'Xs: 360x640'),
+               (768, 'Sm: 768x1024')
                )
 
 SLIDESHOW_TYPES = getattr(settings, 'JSSOR_SLIDESHOW_TYPES', SLIDESHOW_TYPES)

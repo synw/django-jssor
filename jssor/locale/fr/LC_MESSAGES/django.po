@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 10:02+0000\n"
+"POT-Creation-Date: 2016-06-17 11:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgstr "Hauteur"
 
 #: models.py:18
 msgid "Group_id"
-msgstr ""
+msgstr "Identifiant des groupes"
 
 #: models.py:19
 msgid "Breakpoint"
@@ -111,18 +111,26 @@ msgid "Order"
 msgstr "Ordre"
 
 #: models.py:37
+msgid "Html"
+msgstr ""
+
+#: models.py:37
+msgid "For captions or extra html to output"
+msgstr "Pour les captions ou du code html"
+
+#: models.py:38
 msgid "Link"
 msgstr "Lien"
 
-#: models.py:38
+#: models.py:39
 msgid "Open link in a new tab"
 msgstr "Ouvrir le lien dans un nouvel onglet"
 
-#: models.py:42
+#: models.py:43
 msgid "Slide"
 msgstr "Slide"
 
-#: models.py:43
+#: models.py:44
 msgid "Slides"
 msgstr "Slides"
 

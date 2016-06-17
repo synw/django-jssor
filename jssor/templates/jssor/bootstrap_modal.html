@@ -27,6 +27,7 @@ height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.h
                 {% else %}
                 	<img u="image" src="{{ slide.image.url }}" />
                 {% endif %}
+                {{ slide.html|safe }}
 	        </div>
 		{% endfor %}
       </div>

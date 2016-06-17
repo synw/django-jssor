@@ -105,6 +105,7 @@
 	                {% if slide.link %}<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>{% endif %}
 						<img src="{{ slide.image.url }}"  alt="" />	
 					{% if slide.link %}</a>{% endif %}
+					{{ slide.html|safe }}
 	            </div>
 	            {% endfor %}
             </div>

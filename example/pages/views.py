@@ -19,11 +19,7 @@ class PageView(TemplateView):
             url = '/' + url
         if not url.endswith('/') and settings.APPEND_SLASH:
             url += '/'
-        page=Page.objects.filter(url=url).select_related('slideshow')[0]
-        if page.slideshow:
-            context['slideshow'] = page.slideshow
-            slides = Slide.objects.filter(slideshow=page.slideshow)
-            context['slides'] = slides
+        page=Page.objects.filter(url=url)[0]
         context['page'] = page
         context['load_jquery'] = True
         return context

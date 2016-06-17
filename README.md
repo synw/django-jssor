@@ -23,7 +23,8 @@ Install dependencies if you cloned the repository:
 pip install Pillow
   ```
 
-Add `jssor` to INSTALLED_APPS. Install and add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails
+Add `'jssor',` and `'codemirror2',` to INSTALLED_APPS. 
+Install and add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails.
 
 Migrate and collect static files
 
@@ -41,6 +42,8 @@ necessary javascript
 
 # Example usage
 
+## Direct use
+
 ### Use it whith slideshow instances
 
 Check [the example](example)
@@ -55,6 +58,19 @@ Check [the example](example)
   		{% endwith %}
   	{% endwith %}
   {% endwith %}
+  ```
+## Responsive loader
+
+Slideshows have a `slideshow_group` field. If you make different slideshows in the same group
+according to the breakpoints (ex: a big one, a 360x640 and a 320x480) you can use the responsive loader:
+it will detect the screen width and render the proper sildeshow.
+
+  ```django
+  {% if page.slideshow_group %}
+  	{% with page.slideshow_group as slideshow_group %}
+  		{% include "jssor/loader.html" %}
+  	{% endwith %}
+  {% endif %}
   ```
 
 # Options

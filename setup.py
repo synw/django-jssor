@@ -22,6 +22,7 @@ setup(
     ],
   install_requires=[
         'Pillow',
+        'django-codemirror2',
     ],
   zip_safe=False
 )

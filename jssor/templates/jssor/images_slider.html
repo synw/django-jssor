@@ -204,7 +204,8 @@
 					{% if slide.link %}</a>{% endif %}
 					{% thumbnail slide.image "200x200" as img %}
 						<img data-u="thumb" src="{{ img.url }}" alt="" style="margin:{{ img|margin:"100x100" }}" />
-					{% endthumbnail %}              
+					{% endthumbnail %}  
+					{{ slide.html|safe }}           
 	            </div>
             {% endfor %}
             <a data-u="ad" href="http://www.jssor.com" style="display:none">Responsive Slider</a>

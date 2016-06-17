@@ -5,4 +5,4 @@ from django.contrib.flatpages.models import FlatPage
 from jssor.models import Slideshow
 
 class Page(FlatPage):
-    slideshow = models.ForeignKey(Slideshow, null=True, blank=True, on_delete=models.SET_NULL)
+    slideshow_group = models.SlugField(null=True, blank=True, verbose_name=_(u'Slideshows group id'))

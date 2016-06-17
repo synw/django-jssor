@@ -34,6 +34,7 @@ class Slide(models.Model):
     image = models.ImageField(upload_to='jssor', blank=False, verbose_name=_(u'Image'))
     slideshow = models.ForeignKey(Slideshow, related_name="slides", verbose_name=_(u'Slideshow'))
     order = models.PositiveSmallIntegerField(null=True, verbose_name=_(u'Order'))
+    html = models.TextField(blank=True, verbose_name=_(u'Html'), help_text=_(u'For captions or extra html to output'))
     link = models.CharField(blank=True, max_length=255, verbose_name=_(u'Link'))
     link_is_blank = models.BooleanField(default=False, verbose_name=_(u'Open link in a new tab'))
 
