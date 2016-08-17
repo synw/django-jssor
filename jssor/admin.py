@@ -3,6 +3,7 @@
 from django.contrib import admin
 from jssor.models import Slideshow, Slide
 from jssor.forms import JssorAdminForm
+from jssor.conf import USE_ALAPAGE
 
 
 class SlideInline(admin.StackedInline):
@@ -14,9 +15,13 @@ class SlideInline(admin.StackedInline):
 class SlideshowAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = (SlideInline,)
-    list_display = ['title', 'template_name', 'width', 'height', 'breakpoint', 'group_id']
+    ld = ['title', 'template_name', 'width', 'height', 'breakpoint']
+    if USE_ALAPAGE:
+        ld.append('page')
+    list_display = ld
     list_filter = ['template_name', 'created', 'edited']
     search_fields = ['title']
+    list_select_related = ['page']
 
 
 @admin.register(Slide)

@@ -2,7 +2,9 @@
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from jssor.conf import SLIDESHOW_TYPES, BREAKPOINTS
+from jssor.conf import SLIDESHOW_TYPES, BREAKPOINTS, USE_ALAPAGE
+if USE_ALAPAGE:
+    from alapage.models import Page
 
 
 class Slideshow(models.Model):
@@ -15,9 +17,10 @@ class Slideshow(models.Model):
     bullet_navigator = models.BooleanField(default=False, verbose_name=_(u'Bullet navigator'))
     width = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Width'))
     height = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Height'))
-    group_id = models.SlugField(null=True, blank=True, verbose_name=_(u'Group_id'))
     breakpoint = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Breakpoint'), choices=BREAKPOINTS, default=BREAKPOINTS[0][0])
     fullscreen = models.BooleanField(default=False, verbose_name=_(u'Fullscreen slideshow'))
+    if USE_ALAPAGE:
+        page = models.ForeignKey(Page, null=True, blank=True, verbose_name=_(u'Page'))
     
     class Meta:
         verbose_name = _(u'Slideshow')
