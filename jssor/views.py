@@ -29,7 +29,6 @@ class SlideshowDispatcherView(TemplateView):
             except:
                 return context
             # find the slideshow according to the screen size
-            print "S="+str(slideshows)
             slideshow = slideshows[0]
             if screen_width <= 320:
                 print "320"
@@ -50,8 +49,7 @@ class SlideshowDispatcherView(TemplateView):
                 except:
                     pass
             
-            
-            print str(slideshow)+' / '+str(screen_width)+'x'+str(screen_height)
+            #print str(slideshow)+' / '+str(screen_width)+'x'+str(screen_height)
             context['slideshow'] = slideshow
             context['slides'] = slideshow.slides.all()
             self.slideshow = slideshow
