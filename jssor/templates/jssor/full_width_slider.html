@@ -25,7 +25,8 @@
             ];
             
             var jssor_1_options = {
-              $AutoPlay: true,
+              $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},
+              $AutoPlayInterval: {% if slideshow.autoplay_interval %}{{ slideshow.autoplay_interval }}{% else %}4{% endif %}000,
               $SlideDuration: 800,
               $SlideEasing: $Jease$.$OutQuint,
               $CaptionSliderOptions: {
@@ -36,7 +37,8 @@
                 $Class: $JssorArrowNavigator$
               },
               $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$
+                $Class: $JssorBulletNavigator$,
+                $ChanceToShow: {% if slideshow.bullet_navigator %}2{% else %}0{% endif %}
               }
             };
             
