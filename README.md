@@ -54,13 +54,10 @@ Check [the example](example)
 ### Use the templates directly from some images
 
   ```django
-  {% with mymodel.images.all as slides %}
-  	{% with 800 as slideshow_width %}
-  		{% with 500 as slideshow_height %}
-  			{% include "jssor/images_slider.html" %}
-  		{% endwith %}
-  	{% endwith %}
-  {% endwith %}
+{% block precontent %}
+{% if slideshow_ids %}
+	{% include "jssor/loader.html" %}
+{% endif %}
   ```
 ## Responsive loader
 
