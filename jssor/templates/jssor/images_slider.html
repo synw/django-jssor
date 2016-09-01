@@ -1,12 +1,10 @@
 {% load thumbnail staticfiles %}
-{% block extra_head %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 {% endif %}
 {% if not do_not_load_jssor %}
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.debug.js' %}"></script>
 {% endif %}
-{% endblock %}
 {% include "jssor/fullscreen.html" %}
     <script>
         jQuery(document).ready(function ($) {

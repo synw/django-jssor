@@ -23,8 +23,9 @@ Install dependencies if you cloned the repository:
 pip install Pillow
   ```
 
-Add `'jssor',` and `'codemirror2',` to INSTALLED_APPS. 
-Install and add also `sorl-thumbnail` if you plan to use the slideshows that need thumbnails.
+Add `'jssor',` to INSTALLED_APPS. 
+
+If you wish to use the "Images slider" slideshow you need `pip install sorl-thumbnail` and add `sorl.thumbnail` to INSTALLED_APPS
 
 Migrate and collect static files
 
@@ -34,6 +35,8 @@ python manage.py makemigrations
 python manager.py migrate
 python manage.py collectstatic
   ```
+
+Add `url(r'^slideshows/', include('jssor.urls')),` to urls  
 
 # Configuration
 

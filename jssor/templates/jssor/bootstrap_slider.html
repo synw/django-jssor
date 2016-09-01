@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% block extra_header %}
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 {% endif %}
@@ -7,7 +6,6 @@
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.js' %}"></script>
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}
-{% endblock %}
 {% include "jssor/fullscreen.html" %}
    <script>
 

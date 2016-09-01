@@ -1,9 +1,7 @@
 {% load staticfiles i18n %}
-{% block extra_header %}
 	{% if load_jquery %}
 		<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 	{% endif %}
-{% endblock %}
 {% include "jssor/fullscreen.html" %}
 <img src="{{ slides.0.image.url }}" style="width:{% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}px;
 height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px" class="img-thumbnail gus" data-toggle="modal" data-target="#myModal">

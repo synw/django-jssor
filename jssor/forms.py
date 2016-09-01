@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-from codemirror2.widgets import CodeMirrorEditor
+#from codemirror2.widgets import CodeMirrorEditor
 from jssor.models import Slide
 
 
 class JssorAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(JssorAdminForm, self).__init__(*args, **kwargs)
-    
+    """
     html = forms.CharField(
                               widget=CodeMirrorEditor(options={
                                                          'mode':'htmlmixed',
@@ -27,7 +27,7 @@ class JssorAdminForm(forms.ModelForm):
                                                          )
                               
                               )
-    
+    """
     class Meta:
         model = Slide
         exclude = ('created','edited')
