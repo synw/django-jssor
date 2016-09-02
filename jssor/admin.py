@@ -18,10 +18,10 @@ class SlideshowAdmin(admin.ModelAdmin):
     ld = ['title', 'template_name', 'width', 'height', 'breakpoint']
     if USE_ALAPAGE:
         ld.append('page')
+        list_select_related = ['page']
     list_display = ld
     list_filter = ['template_name', 'created', 'edited']
     search_fields = ['title']
-    list_select_related = ['page']
 
 
 @admin.register(Slide)
