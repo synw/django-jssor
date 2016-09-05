@@ -16,7 +16,7 @@ class SlideshowAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = (SlideInline,)
     ld = ['title', 'template_name', 'width', 'height', 'breakpoint']
-    if USE_ALAPAGE:
+    if USE_ALAPAGE is True:
         ld.append('page')
         list_select_related = ['page']
     list_display = ld

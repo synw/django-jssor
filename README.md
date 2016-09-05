@@ -9,7 +9,7 @@ This application make it easy to use the [jssor](http://jssor.com/) slideshows.
 Install or clone for the latest developpement version:
 
   ```bash
-pip install django-jssor
+pip install django-jssor django-codemirror2
   ```
 
   ```bash
@@ -25,7 +25,8 @@ pip install Pillow
 
 Add `'jssor',` to INSTALLED_APPS. 
 
-If you wish to use the "Images slider" slideshow you need `pip install sorl-thumbnail` and add `sorl.thumbnail` to INSTALLED_APPS
+If you wish to use the "Images slider" slideshow you need
+ `pip install easy-thumbnails` and add `easy_thumbnails` to INSTALLED_APPS
 
 Migrate and collect static files
 
@@ -37,11 +38,6 @@ python manage.py collectstatic
   ```
 
 Add `url(r'^slideshows/', include('jssor.urls')),` to urls  
-
-# Configuration
-
-Requirement: a block `{% block extra_head %}` in the \<head\> tag of the base template to load the 
-necessary javascript
 
 # Example usage
 
@@ -89,7 +85,8 @@ Or directly in the template:
 {% endwith %}
   ```
 
-By default it loads the necessary jssor js and css files in the `{% block extra_head %}` of your main template: if you don't want these to be loaded set the variable `do_not_load_jssor=True` the same way
+By default it loads the necessary jssor js and css files: if you don't want these to be loaded set 
+the variable `do_not_load_jssor` to `True` the same way.
 
 # Developement
 
