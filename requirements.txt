@@ -1,2 +1,2 @@
 Pillow>=2.9.0
-django-codemirror2
+pytz
