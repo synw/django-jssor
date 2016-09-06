@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from django.contrib.flatpages.models import FlatPage
-from jssor.models import Slideshow
+from jssor.models import ResponsiveGroup
 
-class Page(FlatPage):
-    slideshow_group = models.SlugField(null=True, blank=True, verbose_name=_(u'Slideshows group id'))
+class Page(models.Model):
+    url = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    content = models.TextField(blank=True)
+    slideshow_group = models.ForeignKey(ResponsiveGroup, null=True, blank=True)
+    
+    def __unicode__(self):
+        return self.title+" "+self.url

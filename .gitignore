@@ -1,5 +1,5 @@
-settings.py
-*.sqlite3
+#settings.py
+#*.sqlite3
 .project
 .pydevproject
 .settings
