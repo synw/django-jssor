@@ -1,5 +1,5 @@
-Runing the example
-==================
+Run the example
+===============
 
 .. highlight:: bash
 
@@ -12,6 +12,9 @@ Runing the example
    source bin/activate
    pip install django django-jssor Pillow pytz
    cd example
-   python manage.py migrate
    python manage.py runserver
+   
+Go to ``http://localhost:8000/``. 
+
+Admin login is ``admin`` and password is ``jssor_example``.
    
