@@ -1,8 +1,7 @@
 {% load staticfiles i18n %}
-	{% if load_jquery %}
-		<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
-	{% endif %}
-{% include "jssor/fullscreen.html" %}
+{% if load_jquery %}
+	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
+{% endif %}
 <img src="{{ slides.0.image.url }}" style="width:{% if slideshow.fullscreen %}{{ screen_width }}{% else %}{{ slideshow.width }}{{ slideshow_width }}{% endif %}px;
 height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px" class="img-thumbnail gus" data-toggle="modal" data-target="#myModal">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

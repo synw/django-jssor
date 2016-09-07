@@ -2,9 +2,34 @@
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from jssor.conf import SLIDESHOW_TYPES, BREAKPOINTS, USE_ALAPAGE
-if USE_ALAPAGE:
-    from alapage.models import Page
+from jssor.conf import SLIDESHOW_TYPES, BREAKPOINTS
+
+
+class ResponsiveGroup(models.Model):
+    title = models.CharField(max_length=250, verbose_name=_(u'Title'))
+    edited = models.DateTimeField(editable=False, auto_now=True, verbose_name=u'Edité le')
+    created = models.DateTimeField(editable=False, auto_now_add=True)
+    fullscreen = models.BooleanField(default=False, verbose_name=_(u'Fullscreen slideshow'))
+    
+    class Meta:
+        verbose_name = _(u'Responsive groups')
+        verbose_name_plural = _(u'Responsive group')
+
+    def __unicode__(self):
+        return unicode(self.title)
+    
+    def save(self, *args, **kwargs):
+        slideshows = Slideshow.objects.filter(responsive_group=self)
+        for slideshow in slideshows:
+            if self.fullscreen is True:
+                if not slideshow.fullscreen is True:
+                    slideshow.fullscreen = True
+                    slideshow.save()
+            else:
+                if slideshow.fullscreen is True:
+                    slideshow.fullscreen = False
+                    slideshow.save()
+        super(ResponsiveGroup, self).save(*args, **kwargs)
 
 
 class Slideshow(models.Model):
@@ -18,13 +43,13 @@ class Slideshow(models.Model):
     width = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Width'))
     height = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Height'))
     breakpoint = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Breakpoint'), choices=BREAKPOINTS, default=BREAKPOINTS[0][0])
+    responsive_group = models.ForeignKey(ResponsiveGroup, null=True, blank=True, related_name="slideshows", verbose_name=_(u'Responsive group'))
     fullscreen = models.BooleanField(default=False, verbose_name=_(u'Fullscreen slideshow'))
-    if USE_ALAPAGE:
-        page = models.ForeignKey(Page, null=True, blank=True, verbose_name=_(u'Page'))
     
     class Meta:
         verbose_name = _(u'Slideshow')
         verbose_name_plural = _(u'Slideshows')
+        unique_together = ('breakpoint', 'responsive_group')
 
     def __unicode__(self):
         return unicode(self.title)

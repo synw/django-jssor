@@ -6,7 +6,6 @@
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.js' %}"></script>
 	<script type="text/javascript" src="{% static 'jssor/js/jssor.slider.js' %}"></script>
 {% endif %}
-{% include "jssor/fullscreen.html" %}
 <script>
 jQuery(document).ready(function ($) {
     
@@ -94,7 +93,7 @@ jQuery(document).ready(function ($) {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    background: url('{% static "img/a17.png" %}') no-repeat;
+    background: url('{% static "jssor/img/a17.png" %}') no-repeat;
     overflow: hidden;
 }
 .jssora05l { background-position: -10px -40px; }
@@ -144,7 +143,7 @@ jQuery(document).ready(function ($) {
     height: 68px;
     border: #000 2px solid;
     box-sizing: content-box;
-    background: url('{% static "img/t01.png" %}') -800px -800px no-repeat;
+    background: url('{% static "jssor/img/t01.png" %}') -800px -800px no-repeat;
     _background: none;
 }
 
@@ -189,7 +188,7 @@ jQuery(document).ready(function ($) {
 <!-- Loading Screen -->
 <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
     <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-    <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+    <div style="position:absolute;display:block;background:url('{% static 'jssor/img/loading.gif' %}') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 </div>
 <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
     {% for slide in slides %}
@@ -203,10 +202,6 @@ jQuery(document).ready(function ($) {
          {{ slide.html|safe }}
      </div>
      {% endfor %}
-    <div data-p="144.50" style="display: none;">
-        <img data-u="image" src="img/01.jpg" />
-        <img data-u="thumb" src="img/thumb-01.jpg" />
-    </div>
 </div>
 <!-- Thumbnail Navigator -->
 <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:800px;height:100px;" data-autocenter="1">

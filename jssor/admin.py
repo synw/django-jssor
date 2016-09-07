@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
-from jssor.models import Slideshow, Slide
+from jssor.models import ResponsiveGroup, Slideshow, Slide
 from jssor.forms import JssorAdminForm
-from jssor.conf import USE_ALAPAGE
 
 
 class SlideInline(admin.StackedInline):
@@ -11,17 +11,39 @@ class SlideInline(admin.StackedInline):
     extra = 0
 
 
+@admin.register(ResponsiveGroup)
+class ResponsiveGroupAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created'
+    list_display = ['title', "fullscreen"]
+    list_filter = ['created', 'edited']
+    search_fields = ['title']
+
+
 @admin.register(Slideshow)
 class SlideshowAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     inlines = (SlideInline,)
-    ld = ['title', 'template_name', 'width', 'height', 'breakpoint']
-    if USE_ALAPAGE is True:
-        ld.append('page')
-        list_select_related = ['page']
-    list_display = ld
+    list_display = ['title', 'template_name', 'width', 'height', 'breakpoint']
     list_filter = ['template_name', 'created', 'edited']
     search_fields = ['title']
+    
+    def get_fieldsets(self, request, obj=None):
+        super(SlideshowAdmin, self).get_fieldsets(request, obj)
+        fieldsets = (
+            (None, {
+                'fields': (
+                        ('title',),
+                        ('width', 'height'),
+                        ('template_name', "breakpoint"),
+                        ("responsive_group", "fullscreen"),
+                        ),
+            }),
+            (_(u'Slideshow options'), {
+                'classes': ('collapse',),
+                'fields': ('autoplay','autoplay_interval', 'bullet_navigator')
+            }),
+        )
+        return fieldsets
 
 
 @admin.register(Slide)
