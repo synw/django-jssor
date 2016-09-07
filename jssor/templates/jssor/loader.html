@@ -2,17 +2,19 @@
 {% if load_jquery %}
 	<script type="text/javascript" src="{% static 'jssor/js/jquery-1.9.1.min.js' %}"></script>
 {% endif %}
-<div id="slideshow"></div>
-{% ids_from_group slideshows_group as slideshow_ids %}
-<script type="text/javascript">
-	function fire_slideshow(slideshow_ids) {
-		var body_height = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-		var body_width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
-		var url = "{% url 'slideshow-dispatcher' slideshow_ids=slideshow_ids screen_width=123578545895 screen_height=546574524552455 %}";
-		url = url.replace("123578545895", body_width.toString());
-		url = url.replace("546574524552455", body_height.toString().toString());
-		$('#slideshow').load(url);
-		//console.log("******************* URL: "+url);
-	}
-	fire_slideshow('{{ slideshow_ids }}');
-</script>
+{% if slideshows_group %}
+	<div id="slideshow"></div>
+	{% ids_from_group slideshows_group as slideshow_ids %}
+	<script type="text/javascript">
+		function fire_slideshow(slideshow_ids) {
+			var body_height = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+			var body_width = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+			var url = "{% url 'slideshow-dispatcher' slideshow_ids=slideshow_ids screen_width=123578545895 screen_height=546574524552455 %}";
+			url = url.replace("123578545895", body_width.toString());
+			url = url.replace("546574524552455", body_height.toString().toString());
+			$('#slideshow').load(url);
+			//console.log("******************* URL: "+url);
+		}
+		fire_slideshow('{{ slideshow_ids }}');
+	</script>
+{% endif %}
