@@ -19,7 +19,6 @@
    	                                 var jssor_1_options = {
    	                                   $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},
    	                                   $SlideDuration: {% if slideshow.autoplay_interval %}{{ slideshow.autoplay_interval }}{% else %}4{% endif %}000,
-   	                                   $SlideEasing: $Jease$.$OutQuint,
 	   	                                $SlideshowOptions: {
 	   	                                 $Class: $JssorSlideshowRunner$,
 	   	                                 $Transitions: jssor_1_SlideshowTransitions,
@@ -27,7 +26,7 @@
 	   	                               },
    	                                   $CaptionSliderOptions: {
    	                                     $Class: $JssorCaptionSlideo$,
-   	                                     $Transitions: jssor_1_SlideoTransitions
+   	                                  	 $CaptionTransitions: jssor_1_SlideoTransitions
    	                                   },
    	                                   $ArrowNavigatorOptions: {
    	                                     $Class: $JssorArrowNavigator$
