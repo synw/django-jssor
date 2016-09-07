@@ -9,7 +9,13 @@
 <script>
 
      jQuery(document).ready(function ($) {
-         var options = {
+    	 var jssor_1_SlideshowTransitions = [
+    	                                     {{ slideshow.transitions }}
+    	                                   ];
+    	 var jssor_1_SlideoTransitions = [
+      	                                   {{ slideshow.captions }}
+      	                                 ];
+    	 var options = {
              $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
              $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
              $AutoPlayInterval: {% if slideshow.autoplay_interval %}{{ slideshow.autoplay_interval }}{% else %}4{% endif %}000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
@@ -27,7 +33,18 @@
              $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
              $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
              $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
-
+			
+             $SlideshowOptions: {
+                 $Class: $JssorSlideshowRunner$,
+                 $Transitions: jssor_1_SlideshowTransitions,
+                 $TransitionsOrder: 1
+               },
+             
+             $CaptionSliderOptions: {
+                    $Class: $JssorCaptionSlideo$,
+                    $Transitions: jssor_1_SlideoTransitions
+                  },
+                  
              $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
                  $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
                  $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
@@ -98,13 +115,11 @@
          height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.height }}{{ slideshow_height }}{% endif %}px;
          overflow: hidden;">
              {% for slide in slides %}
-          <div>
-              {% if slide.link %}<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>{% endif %}
-			<img src="{{ slide.image.url }}"  alt="" />	
-		{% if slide.link %}</a>{% endif %}
-		{{ slide.html|safe }}
-          </div>
-          {% endfor %}
+	          <div>
+				<img src="{{ slide.image.url }}"  alt="" />	
+				{{ slide.html|safe }}
+	          </div>
+          	{% endfor %}
          </div>
          
          <!--#region Bullet Navigator Skin Begin -->

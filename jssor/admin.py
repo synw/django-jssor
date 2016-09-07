@@ -40,7 +40,11 @@ class SlideshowAdmin(admin.ModelAdmin):
             }),
             (_(u'Slideshow options'), {
                 'classes': ('collapse',),
-                'fields': ('autoplay','autoplay_interval', 'bullet_navigator')
+                'fields': (('autoplay','autoplay_interval'), 'bullet_navigator')
+            }),
+            (_(u'Effects'), {
+                'classes': ('collapse',),
+                'fields': ('captions', 'transitions')
             }),
         )
         return fieldsets

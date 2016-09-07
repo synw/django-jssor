@@ -45,6 +45,8 @@ class Slideshow(models.Model):
     breakpoint = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Breakpoint'), choices=BREAKPOINTS, default=BREAKPOINTS[0][0])
     responsive_group = models.ForeignKey(ResponsiveGroup, null=True, blank=True, related_name="slideshows", verbose_name=_(u'Responsive group'))
     fullscreen = models.BooleanField(default=False, verbose_name=_(u'Fullscreen slideshow'))
+    transitions = models.TextField(blank=True, verbose_name=_(u'Sideshow transitions'))
+    captions = models.TextField(blank=True, verbose_name=_(u'Captions transitions'))
     
     class Meta:
         verbose_name = _(u'Slideshow')
@@ -63,8 +65,6 @@ class Slide(models.Model):
     slideshow = models.ForeignKey(Slideshow, related_name="slides", verbose_name=_(u'Slideshow'))
     order = models.PositiveSmallIntegerField(null=True, verbose_name=_(u'Order'))
     html = models.TextField(blank=True, verbose_name=_(u'Html'), help_text=_(u'For captions or extra html to output'))
-    link = models.CharField(blank=True, max_length=255, verbose_name=_(u'Link'))
-    link_is_blank = models.BooleanField(default=False, verbose_name=_(u'Open link in a new tab'))
 
     class Meta:
         ordering = ('order', 'slideshow', 'created')

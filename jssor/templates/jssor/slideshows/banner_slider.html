@@ -12,11 +12,12 @@
          //Reference http://www.jssor.com/development/tool-slideshow-transition-viewer.html
 
          var _SlideshowTransitions = [
-         //Fade in R
-         {$Duration: 1200, x: -0.3, $During: { $Left: [0.3, 0.7] }, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
-         //Fade out L
-         , { $Duration: 1200, x: 0.3, $SlideOut: true, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }
-         ];
+			{{ slideshow.transitions }}
+		];
+         
+         var jssor_1_SlideoTransitions = [
+      	                                   {{ slideshow.captions }}
+      	                                 ];
 
          var options = {
              $AutoPlay: {% if slideshow.autoplay %}true{% else %}false{% endif %},                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
@@ -42,6 +43,11 @@
                  $TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
                  $ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
              },
+             
+             $CaptionSliderOptions: {
+                    $Class: $JssorCaptionSlideo$,
+                    $Transitions: jssor_1_SlideoTransitions
+                  },
 
              $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
                  $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
@@ -107,11 +113,7 @@ $(window).bind("orientationchange", ScaleSlider);
         overflow: hidden;">
         {% for slide in slides %}
         <div>
-        	{% if slide.link %}
-            	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}><img u="image" src="{{ slide.image.url }}" /></a>
-            {% else %}
-            	<img u="image" src="{{ slide.image.url }}" />
-            {% endif %}
+        	<img u="image" src="{{ slide.image.url }}" />
             <div u="thumb">{% if slide.title %}{{ slide.title }}{% endif %}</div>
             {{ slide.html|safe }}
         </div>

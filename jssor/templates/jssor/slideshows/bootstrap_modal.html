@@ -17,13 +17,7 @@ height: {% if slideshow.fullscreen %}{{ screen_height }}{% else %}{{ slideshow.h
       <div class="carousel-inner" role="listbox">
       	{% for slide in slides %}
 	        <div class="item{% if forloop.first %} active{% endif %}">
-	        	{% if slide.link %}
-                	<a href="{{ slide.link }}"{% if slide.link_is_blank %} target="_blank"{% endif %}>
-                		<img class="first-slide" u="image" src="{{ slide.image.url }}" />
-                	</a>
-                {% else %}
-                	<img u="image" src="{{ slide.image.url }}" />
-                {% endif %}
+	        	<img u="image" src="{{ slide.image.url }}" />
                 {{ slide.html|safe }}
 	        </div>
 		{% endfor %}
