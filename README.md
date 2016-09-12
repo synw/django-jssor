@@ -12,7 +12,6 @@ Read the [documentation](http://django-jssor.readthedocs.io/en/latest/).
 
 # Todo
 
-- [ ] Release 0.6
 - [ ] Update tests
 - [ ] Add more options to control the slideshow behavior like ArrowKeyNavigation
 - [ ] Add more jssor templates and slideshow types
