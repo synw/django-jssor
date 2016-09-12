@@ -8,8 +8,7 @@ Responsive slideshows with the [jssor](http://jssor.com/) library. Features:
 - Build a slideshow from any ImageField objects
 - Slideshow groups and responsive loader: to load a slideshow depending on the device width
 
-Read the [documentation](http://django-jssor.readthedocs.io/en/latest/). Warning: this doc is for the 0.6 version
-which is not yet released, so for now this doc is up to date with the master branch only.
+Read the [documentation](http://django-jssor.readthedocs.io/en/latest/).
 
 # Todo
 

@@ -1,2 +1,2 @@
-__version__ = '0.5.6'
+__version__ = '0.6'
 default_app_config = 'jssor.apps.JssorConfig'
